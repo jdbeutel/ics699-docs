@@ -1,6 +1,5 @@
 contact info sharing web app
 ============================
-
 ICS MS project proposal  
 J. David Beutel  
 2013-08-09
