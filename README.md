@@ -55,11 +55,11 @@ This kind of sharing raises privacy concerns.  A phone number or home
 address connects to the physical world, so most people don't want
 theirs to be public.  Deciding how to share ones own contact information with
 a second party is straightforward; several apps already support this,
-such as Facebook, Google+, Plaxo, and Viadeo.  (See examples below.)
+such as Facebook, Google, Plaxo, and Viadeo.  (See examples below.)
 This limitation encourages the spread of these networks,
 but there is little possibility of getting all of ones contacts
 to join the same network and manage their own contact information,
-whether due to choosing other networks or to privacy concerns.
+whether due to choosing other networks, or to privacy concerns.
 
 This forces one to manage other people's contact information
 in ones own address book.  Why shouldn't one collaborate in this?
@@ -110,13 +110,13 @@ to rollback if necessary), or after confirmation of the notification.
 
 The app will need to identify contacts and users.
 
-#### contacts ####
+##### contacts #####
 
 Contact identity, for unification, will be based on name 
 and location.  Matches can be approximate or historical.
 The user can confirm via linking.
 
-#### users ####
+##### users #####
 
 The basis of a user's identity is their email address:
 a ticket mailed in an invitation to that address links the new user
@@ -135,7 +135,10 @@ such as two users with the same name and location.
 Examples
 --------
 
-### Google+ ###
+### Google ###
+
+
+#### Google+ ####
 
 A user's Profile in Google+ allows sharing of the user's own home and
 work contact information, with a nice UI, especially for privacy settings.
@@ -146,4 +149,31 @@ For example, one cannot share ones home phone number with one group
 and home address with a different group.  Also, Google+ does not
 accept third-party contact information.
 
-![Google+ example](proposal/Screenshot-J. David Beutel - Google+ - Mozilla Firefox.png)
+![Google+ profile example](proposal/Google+ - Profile - Contact Info - David Beutel.png)
+
+
+#### Gmail Contacts ####
+
+On the other hand, the Contact Manager in Gmail does allow third-party
+contacts, in "My Contacts".  The user can input anyone.  However, it
+does not support sharing that third-party data.  Second-party data
+from the user's Google+ circles is also displayed, though.
+Here is a circle named "Following".
+
+![Gmail contact manager example](proposal/Gmail - Contact Manager - Following circle.png)
+
+Any Google+ profile contact information that the second party shares
+with the user, whether publicly, individually, or via the second party's
+own circles, is displayed at the bottom.  The user can add more
+information himself in the top part of the page, which adds the
+contact to the "My Contacts" group, in addition to any circles.
+Google does not support sharing any of that information with anyone else.
+Although Google allows it to be exported, or synchronized with smart phones,
+the assumption is that those are not for some other user.
+
+![Gmail contact example](Gmail - Contact Manager - Luke Daley.png)
+
+
+#### HTC Android ####
+
+linking, notes...
