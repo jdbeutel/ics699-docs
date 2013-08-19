@@ -171,7 +171,7 @@ Google does not support sharing any of that information with anyone else.
 Although Google allows it to be exported, or synchronized with smart phones,
 the assumption is that those are not for some other user.
 
-![Gmail contact example](Gmail - Contact Manager - Luke Daley.png)
+![Gmail contact example](proposal/Gmail - Contact Manager - Luke Daley.png)
 
 
 #### HTC Android ####
