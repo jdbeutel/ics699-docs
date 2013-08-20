@@ -132,8 +132,27 @@ The app could at least warn about suspicious identity,
 such as two users with the same name and location.
 
 
-Examples
---------
+Previous Work
+-------------
+
+Below are samples of the interaction scheme
+from my project for Spring 2009 ICS 667:  Agile Usage-Centered Design of a
+Social Networking Contact Book.
+
+![interaction schemes](proposal/Agile Interaction Scheme.png)
+
+Below is a design from my project for
+Spring 2010 ICS 664:  We'll Call You
+
+![design](proposal/WCY-design.jpg)
+
+Below is a screenshot from a partial UI prototype of the above project.
+
+![design](proposal/WCY-prototype.png)
+
+
+Commercial Examples
+-------------------
 
 ### Google ###
 
@@ -224,7 +243,7 @@ The choice of privacy settings are similar, with "lists" instead of "circles".
 ![Facebook contact example](proposal/Facebook - Profile - Contact Info.png)
 
 The user can customize access down to the individual,
-or even excluding individules from choosen groups.
+or even excluding individuals from choosen groups.
 
 ![Facebook custom privacy example](proposal/Facebook - Custom Privacy.png)
 
@@ -242,8 +261,8 @@ and allowing them to un-tag themselves or even un-friend the poster.
 
 ### Plaxo ###
 
-Plaxo supports contact information similar to Google, but with more
-simple privacy settings.  It encouraging users to share their own work
+Plaxo supports contact information similar to Google, but with
+fewer privacy settings.  It encouraging users to share their own work
 or home "cards" with second parties, and also allowing them to input,
 import, or sync third parties.  But, it does not allowing them to share
 third-party information.
