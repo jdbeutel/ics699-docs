@@ -55,7 +55,7 @@ This kind of sharing raises privacy concerns.  A phone number or home
 address connects to the physical world, so most people don't want
 theirs to be public.  Deciding how to share ones own contact information with
 a second party is straightforward; several apps already support this,
-such as Facebook, Google, Plaxo, and Viadeo.  (See examples below.)
+such as Google, Facebook, and Plaxo.  (See examples below.)
 This limitation encourages the spread of these networks,
 but there is little possibility of getting all of ones contacts
 to join the same network and manage their own contact information,
@@ -154,10 +154,10 @@ accept third-party contact information.
 
 #### Gmail Contacts ####
 
-On the other hand, the Contact Manager in Gmail does allow third-party
+The Contact Manager in Gmail, on the other hand, does allow third-party
 contacts, in "My Contacts".  The user can input anyone.  However, it
-does not support sharing that third-party data.  Second-party data
-from the user's Google+ circles is also displayed, though.
+does not support sharing that third-party data.  Second-party information
+shared from the user's Google+ circles is also displayed, though.
 Here is a circle named "Following".
 
 ![Gmail contact manager example](proposal/Gmail - Contact Manager - Following circle.png)
@@ -174,6 +174,72 @@ the assumption is that those are not for some other user.
 ![Gmail contact example](proposal/Gmail - Contact Manager - Luke Daley.png)
 
 
-#### HTC Android ####
+#### Android HTC ####
 
-linking, notes...
+The "People" (a.k.a. Phonebook) on a smart-phone running Android 4.0
+(HTC Sense 3.6) can be integrated with Contacts on Google and other
+stacks, e.g., Facebook.  These contacts, which are sync'ed with separate
+sources, can be linked on the phone.  Regarding the contact information
+that the user inputs on his phone, he can choose to store it online in
+his Google Contacts (instead of just on the phone).
+
+![Android contact example](proposal/Android 4.0 (HTC 3.6) - People (Phonebook) - Details.png)
+![Android link example](proposal/Android 4.0 (HTC 3.6) - People (Phonebook) - Details - Links.png)
+
+The phone stores links in the Notes field of the "My Contact" of
+Google Contacts, e.g.,
+
+    <HTCData><Facebook>id:575439899/friendof:1664495322</Facebook></HTCData>
+
+
+#### Google Drive ####
+
+Google Drive (nee Docs) supports sharing of third-party data,
+or any data that can be put into a spreadsheet or other document.
+The sharing is simple, at the top level, dividing documents
+into ones the user owns, "My Drive", and ones shared with the user
+by other owners, "Shared with me".
+
+![Google Drive owner example](proposal/Google Drive - My Drive.png)
+
+![Google Drive shared example](proposal/Google Drive - Shared with me.png)
+
+A document owner can choose to share it with other users.
+However, it is all or nothing; it cannot share only part of a doc.
+So, it does not support the fine-grained sharing required by this project.
+
+![Google Drive owner sharing example](proposal/Google Drive - My Drive - Shared settings.png)
+
+
+### Facebook ###
+
+As with Google+, a Facebook user can add contact information to his profile
+to share with second-parties, other Facebook users, or the public.
+The choice of privacy settings are similar, with "lists" instead of "circles",
+and custom settings down to the individual, or even excluding individules
+from choosen groups.
+
+Facebook does not have a way to input or share third-party contact
+information, although there could be Facebook apps that provide
+this kind of functionality.  I will need to do some research to see
+whether, once a user has shared his data with another Facebook user,
+that second party can choose to share it with a third party, such as a
+Facebook app.  Facebook at least allows this kind of sharing of other
+kinds of information, such as tagging second or third parties in photos
+and sharing them with other third parties.  However, Facebook has some
+safeguards for this, such as notifing second parties and allowing them
+to un-tag themselves or even un-friend the poster.
+
+![Facebook contact example](proposal/Facebook - Profile - Contact Info.png)
+![Facebook custom privacy example](proposal/Facebook - Custom Privacy.png)
+
+
+### Plaxo ###
+
+Plaxo supports contact information similar to Google, but with more
+simple privacy settings.  It encouraging users to share their own work
+or home "cards" with second parties, and also allowing them to input,
+import, or sync third parties.  But, it does not allowing them to share
+third-party information.
+
+![Plaxo address book example](proposal/Plaxo - Address Book.png)
