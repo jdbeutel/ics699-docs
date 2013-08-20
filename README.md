@@ -183,8 +183,8 @@ sources, can be linked on the phone.  Regarding the contact information
 that the user inputs on his phone, he can choose to store it online in
 his Google Contacts (instead of just on the phone).
 
-![Android contact example](proposal/Android 4.0 (HTC 3.6) - People (Phonebook) - Details.png)
-![Android link example](proposal/Android 4.0 (HTC 3.6) - People (Phonebook) - Details - Links.png)
+![Android contact example](proposal/Android 4.0 - People - Details.png)
+![Android link example](proposal/Android 4.0 - People - Details - Links.png)
 
 The phone stores links in the Notes field of the "My Contact" of
 Google Contacts, e.g.,
@@ -200,38 +200,44 @@ The sharing is simple, at the top level, dividing documents
 into ones the user owns, "My Drive", and ones shared with the user
 by other owners, "Shared with me".
 
+"My Drive" contains docs owned by me.
+
 ![Google Drive owner example](proposal/Google Drive - My Drive.png)
+
+"Shared with me" contains docs owned by other users.
 
 ![Google Drive shared example](proposal/Google Drive - Shared with me.png)
 
 A document owner can choose to share it with other users.
-However, it is all or nothing; it cannot share only part of a doc.
+However, this sharing is all or nothing; it cannot share only part of a doc.
 So, it does not support the fine-grained sharing required by this project.
 
-![Google Drive owner sharing example](proposal/Google Drive - My Drive - Shared settings.png)
+![Google Drive owner sharing example](proposal/Google Drive - My Drive - Sharing settings.png)
 
 
 ### Facebook ###
 
 As with Google+, a Facebook user can add contact information to his profile
 to share with second-parties, other Facebook users, or the public.
-The choice of privacy settings are similar, with "lists" instead of "circles",
-and custom settings down to the individual, or even excluding individules
-from choosen groups.
-
-Facebook does not have a way to input or share third-party contact
-information, although there could be Facebook apps that provide
-this kind of functionality.  I will need to do some research to see
-whether, once a user has shared his data with another Facebook user,
-that second party can choose to share it with a third party, such as a
-Facebook app.  Facebook at least allows this kind of sharing of other
-kinds of information, such as tagging second or third parties in photos
-and sharing them with other third parties.  However, Facebook has some
-safeguards for this, such as notifing second parties and allowing them
-to un-tag themselves or even un-friend the poster.
+The choice of privacy settings are similar, with "lists" instead of "circles".
 
 ![Facebook contact example](proposal/Facebook - Profile - Contact Info.png)
+
+The user can customize access down to the individual,
+or even excluding individules from choosen groups.
+
 ![Facebook custom privacy example](proposal/Facebook - Custom Privacy.png)
+
+However, Facebook does not have a way to input or share third-party
+contact information, although there could be Facebook apps that provide
+this kind of functionality.  I will need to do some research to see
+whether, once a user has shared his data with another Facebook user,
+that second party can choose to share it with a third party, such
+as a Facebook app.  Facebook at least allows this kind of sharing of
+other kinds of information, such as tagging second or third parties in
+photos and sharing them with other third parties.  On the other hand,
+Facebook has some safeguards for this, such as notifing second parties
+and allowing them to un-tag themselves or even un-friend the poster.
 
 
 ### Plaxo ###
