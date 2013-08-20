@@ -17,7 +17,7 @@ I normally don't use postal addresses, until I
 send out a bunch of holiday cards.  Then the Post Office returns a few,
 because the addressee has moved during the year, so I sometimes need to
 contact friends or relatives to get the updated address.  Phone numbers
-and email addresses also change occassionally.  With this app, one person
+and email addresses also change occasionally.  With this app, one person
 can automatically share an update with friends or family.
 
 I have done several class projects leading up to this one:
@@ -46,6 +46,25 @@ Tentative Schedule
 * 2014 May - write report
 
 
+Previous Work
+-------------
+
+Below are samples of the interaction scheme
+from my project for Spring 2009 ICS 667:  Agile Usage-Centered Design of a
+Social Networking Contact Book.
+
+![interaction schemes](proposal/Agile Interaction Scheme.png)
+
+Below is a design from my project for
+Spring 2010 ICS 664:  We'll Call You
+
+![design](proposal/WCY-design.jpg)
+
+Below is a screen-shot from a partial UI prototype of the above project.
+
+![design](proposal/WCY-prototype.png)
+
+
 Issues
 ------
 
@@ -71,7 +90,7 @@ appropriately, but how far does that trust go?  If he shares it with
 his wife, can she share it with her friends?  If my grandmother finally
 starts using the app, and asserts her privacy preferences, do they apply
 to the information that other users have input about her?  Who owns
-that information?  What cognative model and UI would support this?
+that information?  What cognitive model and UI would support this?
 
 
 ### unification ###
@@ -132,27 +151,14 @@ The app could at least warn about suspicious identity,
 such as two users with the same name and location.
 
 
-Previous Work
--------------
+Existing Examples
+-----------------
 
-Below are samples of the interaction scheme
-from my project for Spring 2009 ICS 667:  Agile Usage-Centered Design of a
-Social Networking Contact Book.
+I am not aware of any existing system that supports what I would
+like to implement with this project.  Several come close,
+are well-implemented, and well-integrated.  But, perhaps forbiddingly,
+none support the sharing of third-party contact information.
 
-![interaction schemes](proposal/Agile Interaction Scheme.png)
-
-Below is a design from my project for
-Spring 2010 ICS 664:  We'll Call You
-
-![design](proposal/WCY-design.jpg)
-
-Below is a screenshot from a partial UI prototype of the above project.
-
-![design](proposal/WCY-prototype.png)
-
-
-Commercial Examples
--------------------
 
 ### Google ###
 
@@ -199,7 +205,7 @@ The "People" (a.k.a. Phonebook) on a smart-phone running Android 4.0
 (HTC Sense 3.6) can be integrated with Contacts on Google and other
 stacks, e.g., Facebook.  These contacts, which are sync'ed with separate
 sources, can be linked on the phone.  Regarding the contact information
-that the user inputs on his phone, he can choose to store it online in
+that the user inputs on his phone, he can choose to store it on-line in
 his Google Contacts (instead of just on the phone).
 
 ![Android contact example](proposal/Android 4.0 - People - Details.png)
@@ -243,7 +249,7 @@ The choice of privacy settings are similar, with "lists" instead of "circles".
 ![Facebook contact example](proposal/Facebook - Profile - Contact Info.png)
 
 The user can customize access down to the individual,
-or even excluding individuals from choosen groups.
+or even excluding individuals from chosen groups.
 
 ![Facebook custom privacy example](proposal/Facebook - Custom Privacy.png)
 
@@ -255,7 +261,7 @@ that second party can choose to share it with a third party, such
 as a Facebook app.  Facebook at least allows this kind of sharing of
 other kinds of information, such as tagging second or third parties in
 photos and sharing them with other third parties.  On the other hand,
-Facebook has some safeguards for this, such as notifing second parties
+Facebook has some safeguards for this, such as notifying second parties
 and allowing them to un-tag themselves or even un-friend the poster.
 
 
