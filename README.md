@@ -60,7 +60,11 @@ Spring 2010 ICS 664:  We'll Call You
 
 ![design](proposal/WCY-design.jpg)
 
-Below is a screen-shot from a partial UI prototype of the above project.
+Below is a screen-shot from a partial UI prototype of the above project,
+implemented as a Grails web application.
+Due to time constraints, it does not actually implement editing or adding
+contact information, permissions, history, search, notifications, etc.
+I would like to do all that in this project.
 
 ![design](proposal/WCY-prototype.png)
 
@@ -91,7 +95,8 @@ his wife, can she share it with her friends?  If my grandmother finally
 starts using the app, and asserts her privacy preferences, do they apply
 to the information that other users have input about her?  Who owns
 that information?  What cognitive model and UI would support this?
-
+Would showing the user/relation that the information or update came from
+provide enough contextual integrity (Nissenbaum, 2004)?
 
 ### unification ###
 
@@ -108,21 +113,27 @@ same identity, for these two users to be able to share their updates.
 A user may manually link or confirm an identity, to accept updates.
 On the other hand, the more hops separate two users, the less information
 they will want to share about a contact.
+(Abdul-Rahman & Hailes, 2000) and (Jøsang, 2001)
+discuss subjective trust and uncertainty.
 
-At the logical extreme, suppose that a user who I do not know also inputs
-my grandmother's address.  We cannot share this information, because we
-have no reason to trust each other.  So, the app cannot have a single
-copy of my grandmother's address that we all update, like a wiki.
+At the logical extreme, suppose that a user, Bob, who I do not know,
+also inputs my grandmother's address.  We cannot share this information,
+because we have no reason to trust each other.  So, the app cannot have a
+single copy of my grandmother's address that we all update, like a wiki.
 It needs to have two separate contacts for this same identity.
 
-Now suppose that someone we both know starts using the app, and we both
-share my grandmother's address with him.  He doesn't want two copies
-in his address book.  So, each user needs his own copy, receiving optional
-update advice that ripples through related copies.  This allows the data
-to be distributed (although it will be centralized in my web app).
-Each update advice can come with some level of trust, based on the
-relation it came from, and be applied automatically (with history
-to rollback if necessary), or after confirmation of the notification.
+Now, suppose that Charlie, who Bob and I both know, starts using the app,
+and Bob and I both share my grandmother's address with him.  Charlie
+doesn't want two copies in his address book.  So, each user needs his
+own copy, receiving optional update advice that ripples through related
+copies.  This could allow for a distributed, peer-to-peer architecture,
+possibly utilizing attribute-based encryption (Baden et al, 2009),
+although my project will implement a centralized web app.  Each update
+advice can come with some level of trust, based on the relation it
+came from, and be applied automatically (with history to rollback if
+necessary), or after confirmation of the notification (Shand et al, 2003).
+My previous work designed permissions and history for the wiki model.
+This distributed model will require changes.
 
 
 ### identity ###
@@ -141,7 +152,7 @@ The basis of a user's identity is their email address:
 a ticket mailed in an invitation to that address links the new user
 to the contact information containing that address.
 Supporting authentication via Facebook, Google, etc. would allow
-for stronger authentication.
+for a stronger identity.
 
 Users input their own contact information, and can share it with
 a higher level of trust than third parties can.
@@ -154,10 +165,12 @@ such as two users with the same name and location.
 Existing Examples
 -----------------
 
-I am not aware of any existing system that supports what I would
-like to implement with this project.  Several come close,
+I am not aware of any existing system that supports what I would like to
+implement with this project.  However, several current apps come close,
 are well-implemented, and well-integrated.  But, perhaps forbiddingly,
-none support the sharing of third-party contact information.
+none support the sharing of third-party contact information.  I will do
+more research to see if there are any designs or implementations that
+I can utilize or mash-up for this project.
 
 
 ### Google ###
@@ -274,3 +287,28 @@ import, or sync third parties.  But, it does not allowing them to share
 third-party information.
 
 ![Plaxo address book example](proposal/Plaxo - Address Book.png)
+
+
+References
+----------
+
+Abdul-Rahman, A., & Hailes, S. (2000).
+Supporting Trust in Virtual Communities.
+In Hawaii International Conference on System Sciences 33, pp.1769-1777, 2000.
+
+Baden, R., Bender, A., Spring, N., Bhattacharjee, B., & Starin, D. (2009).
+Persona: an online social network with user-defined privacy.
+SIGCOMM Comput. Commun. Rev., 39(4), 135-146. doi: 10.1145/1594977.1592585.
+
+Jøsang, A. (2001).
+A logic for uncertain probabilities.
+International Journal of Uncertainty, Fuzziness
+and Knowledge - Based Systems, 9(3):279-311, June 2001.
+
+Nissenbaum, H. (2004).
+Privacy as Contextual Integrity.
+Washington Law Review 79 (2004), 101- 39.
+
+Shand, B., Dimmock, N., & Bacon, J. (2003).
+Trust for Ubiquitous, Transparent Collaboration.
+First IEEE International Conference on Pervasive Computing and Communications.
