@@ -2,7 +2,7 @@ contact info sharing web app
 ============================
 ICS MS project proposal  
 J. David Beutel  
-2013-08-09
+2013-08-20
 
 For my ICS 699 project, I would like to implement a contact information
 sharing web application.  It will enable friends and family to collaborate
@@ -174,6 +174,9 @@ I can utilize or mash-up for this project.
 
 
 ### Google ###
+
+Various Google apps are well integrated,
+and support some aspects of this project.
 
 
 #### Google+ ####
