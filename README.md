@@ -32,7 +32,7 @@ Social Networking Site (literature review)
 Tentative Schedule
 ------------------
 
-* 2013 Sep - research relevant publications and apps since 2009
+* 2013 Sep - research publications and apps since 2009
 * 2013 Oct - design for below issues
 * 2013 Nov - update prototype to current Grails
 * 2013 Nov - authentication via Facebook, Google, etc
@@ -72,7 +72,7 @@ I would like to do all that in this project.
 Issues
 ------
 
-### privacy ###
+### privacy & trust ###
 
 This kind of sharing raises privacy concerns.  A phone number or home
 address connects to the physical world, so most people don't want
@@ -80,14 +80,16 @@ theirs to be public.  Deciding how to share ones own contact information with
 a second party is straightforward; several apps already support this,
 such as Google, Facebook, and Plaxo.  (See examples below.)
 This limitation encourages the spread of these networks,
-but there is little possibility of getting all of ones contacts
+but it is unlikely to get all of ones contacts
 to join the same network and manage their own contact information,
-whether due to choosing other networks, or to privacy concerns.
+whether due to some choosing other networks, or to privacy concerns.
 
 This forces one to manage other people's contact information
-in ones own address book.  Why shouldn't one collaborate in this?
-Sharing a third party's contact information with second parties
-involves some wicked problems.  Suppose that my grandmother does not
+in ones own address book.  So, why not collaborate?
+Well, sharing a third party's contact information with second parties
+involves some wicked problems.
+
+Suppose that my grandmother does not
 use the app, so I input her address myself.  I know that she would
 want my brother to have her new address, and I trust him to share it
 appropriately, but how far does that trust go?  If he shares it with
@@ -95,26 +97,27 @@ his wife, can she share it with her friends?  If my grandmother finally
 starts using the app, and asserts her privacy preferences, do they apply
 to the information that other users have input about her?  Who owns
 that information?  What cognitive model and UI would support this?
-Would showing the user/relation that the information or update came from
-provide enough contextual integrity (Nissenbaum, 2004)?
+Would enough contextual integrity (Nissenbaum, 2004) be provided by
+showing from whom the information or update came?
 
 ### unification ###
 
 Different users will have different relations to the same contact.
 If the app lacks good support for that, then it will not sustain the
-collaboration that makes it worth-while.
+collaboration that makes it worth-while.  In other words, for each user's
+own privacy expectations on behalf of each contact, the app must allow
+the user to easily share that contact with the other users who he trusts
+to have it.
 
 When a user imports his address book, some of his contacts will be in
 different social groups.  They are all related to him, but not all to
 each other.  If one of these contacts becomes a user, she must be able
 to import her address book too, which will have only some overlap with
 the first user's.  The app must recognize which contacts refer to the
-same identity, for these two users to be able to share their updates.
-A user may manually link or confirm an identity, to accept updates.
-On the other hand, the more hops separate two users, the less information
-they will want to share about a contact.
-(Abdul-Rahman & Hailes, 2000) and (Jøsang, 2001)
-discuss subjective trust and uncertainty.
+same identity, for these two users to be able to share their updates
+with each other.  A user may manually link or confirm an identity, to
+accept updates.  On the other hand, the more hops separate two users,
+the less information they will want to share about a contact.
 
 At the logical extreme, suppose that a user, Bob, who I do not know,
 also inputs my grandmother's address.  We cannot share this information,
@@ -127,13 +130,20 @@ and Bob and I both share my grandmother's address with him.  Charlie
 doesn't want two copies in his address book.  So, each user needs his
 own copy, receiving optional update advice that ripples through related
 copies.  This could allow for a distributed, peer-to-peer architecture,
-possibly utilizing attribute-based encryption (Baden et al, 2009),
+possibly utilizing attribute-based encryption,
+as discussed by (Baden et al, 2009),
 although my project will implement a centralized web app.  Each update
-advice can come with some level of trust, based on the relation it
-came from, and be applied automatically (with history to rollback if
-necessary), or after confirmation of the notification (Shand et al, 2003).
-My previous work designed permissions and history for the wiki model.
-This distributed model will require changes.
+advice can come with some level of trust or certainty, based on the relation
+it came from, and be applied automatically (with history to rollback if
+necessary), or after confirmation of the notification,
+similar to the system described by (Shand et al, 2003).
+(Abdul-Rahman & Hailes, 2000) and (Jøsang, 2001)
+provide a background for how that system handles subjective trust
+and uncertainty.
+
+My previous work designed permissions and history for the wiki model,
+but the above issue leads me to think that this distributed model
+would be better.
 
 
 ### identity ###
@@ -154,23 +164,22 @@ to the contact information containing that address.
 Supporting authentication via Facebook, Google, etc. would allow
 for a stronger identity.
 
-Users input their own contact information, and can share it with
-a higher level of trust than third parties can.
-There is no absolute trust, however, since impersonation is easy.
-A user can always assign a contact an email address that he controls.
-The app could at least warn about suspicious identity,
-such as two users with the same name and location.
+Users input their own contact information, and can share it with a higher
+level of trust than third parties can.  There is no absolute trust,
+however, since impersonation is easy: a user can always assign a contact
+an email address that he controls.  The app could at least warn about
+suspicious identity, such as two users with the same name and location.
 
 
 Existing Examples
 -----------------
 
-I am not aware of any existing system that supports what I would like to
-implement with this project.  However, several current apps come close,
-are well-implemented, and well-integrated.  But, perhaps forbiddingly,
-none support the sharing of third-party contact information.  I will do
-more research to see if there are any designs or implementations that
-I can utilize or mash-up for this project.
+I have not yet found any existing system that supports what I would like
+to implement with this project.  However, several current apps come close,
+are well-implemented, and well-integrated.  None support collaborative
+maintenance of third-party contact information, though.  I will do more
+research to see if there are any designs or implementations that I can
+utilize or mash-up for this project.
 
 
 ### Google ###
