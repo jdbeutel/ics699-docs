@@ -143,7 +143,7 @@ and uncertainty.
 
 My previous work designed permissions and history for the wiki model,
 but the above issue leads me to think that this distributed model
-would be better.
+would be better (even in a centralized web app).
 
 
 ### identity ###
