@@ -53,12 +53,12 @@ Below are samples of the interaction scheme
 from my project for Spring 2009 ICS 667:  Agile Usage-Centered Design of a
 Social Networking Contact Book.
 
-![interaction schemes](Agile Interaction Scheme.png)
+![interaction schemes](../../../raw/master/proposal/Agile Interaction Scheme.png)
 
 Below is a design from my project for
 Spring 2010 ICS 664:  We'll Call You
 
-![design](WCY-design.jpg)
+![design](../../../raw/master/proposal/WCY-design.jpg)
 
 Below is a screen-shot from a partial UI prototype of the above project,
 implemented as a Grails web application.
@@ -66,7 +66,7 @@ Due to time constraints, it does not actually implement editing or adding
 contact information, permissions, history, search, notifications, etc.
 I would like to do all that in this project.
 
-![design](WCY-prototype.png)
+![design](../../../raw/master/proposal/WCY-prototype.png)
 
 
 Issues
@@ -199,7 +199,7 @@ For example, one cannot share ones home phone number with one group
 and home address with a different group.  Also, Google+ does not
 accept third-party contact information.
 
-![Google+ profile example](Google+ - Profile - Contact Info - David Beutel.png)
+![Google+ profile example](../../../raw/master/proposal/Google+ - Profile - Contact Info - David Beutel.png)
 
 
 #### Gmail Contacts ####
@@ -210,7 +210,7 @@ does not support sharing that third-party data.  Second-party information
 shared from the user's Google+ circles is also displayed, though.
 Here is a circle named "Following".
 
-![Gmail contact manager example](Gmail - Contact Manager - Following circle.png)
+![Gmail contact manager example](../../../raw/master/proposal/Gmail - Contact Manager - Following circle.png)
 
 Any Google+ profile contact information that the second party shares
 with the user, whether publicly, individually, or via the second party's
@@ -221,7 +221,7 @@ Google does not support sharing any of that information with anyone else.
 Although Google allows it to be exported, or synchronized with smart phones,
 the assumption is that those are not for some other user.
 
-![Gmail contact example](Gmail - Contact Manager - Luke Daley.png)
+![Gmail contact example](../../../raw/master/proposal/Gmail - Contact Manager - Luke Daley.png)
 
 
 #### Android HTC ####
@@ -233,8 +233,8 @@ sources, can be linked on the phone.  Regarding the contact information
 that the user inputs on his phone, he can choose to store it on-line in
 his Google Contacts (instead of just on the phone).
 
-![Android contact example](Android 4.0 - People - Details.png)
-![Android link example](Android 4.0 - People - Details - Links.png)
+![Android contact example](../../../raw/master/proposal/Android 4.0 - People - Details.png)
+![Android link example](../../../raw/master/proposal/Android 4.0 - People - Details - Links.png)
 
 The phone stores links in the Notes field of the "My Contact" of
 Google Contacts, e.g.,
@@ -252,17 +252,17 @@ by other owners, "Shared with me".
 
 "My Drive" contains docs owned by me.
 
-![Google Drive owner example](Google Drive - My Drive.png)
+![Google Drive owner example](../../../raw/master/proposal/Google Drive - My Drive.png)
 
 "Shared with me" contains docs owned by other users.
 
-![Google Drive shared example](Google Drive - Shared with me.png)
+![Google Drive shared example](../../../raw/master/proposal/Google Drive - Shared with me.png)
 
 A document owner can choose to share it with other users.
 However, this sharing is all or nothing; it cannot share only part of a doc.
 So, it does not support the fine-grained sharing required by this project.
 
-![Google Drive owner sharing example](Google Drive - My Drive - Sharing settings.png)
+![Google Drive owner sharing example](../../../raw/master/proposal/Google Drive - My Drive - Sharing settings.png)
 
 
 ### Facebook ###
@@ -271,12 +271,12 @@ As with Google+, a Facebook user can add contact information to his profile
 to share with second-parties, other Facebook users, or the public.
 The choice of privacy settings are similar, with "lists" instead of "circles".
 
-![Facebook contact example](Facebook - Profile - Contact Info.png)
+![Facebook contact example](../../../raw/master/proposal/Facebook - Profile - Contact Info.png)
 
 The user can customize access down to the individual,
 or even excluding individuals from chosen groups.
 
-![Facebook custom privacy example](Facebook - Custom Privacy.png)
+![Facebook custom privacy example](../../../raw/master/proposal/Facebook - Custom Privacy.png)
 
 However, Facebook does not have a way to input or share third-party
 contact information, although there could be Facebook apps that provide
@@ -298,7 +298,7 @@ or home "cards" with second parties, and also allowing them to input,
 import, or sync third parties.  But, it does not allowing them to share
 third-party information.
 
-![Plaxo address book example](Plaxo - Address Book.png)
+![Plaxo address book example](../../../raw/master/proposal/Plaxo - Address Book.png)
 
 
 References
