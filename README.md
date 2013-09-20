@@ -16,6 +16,6 @@ I have done several class projects leading up to this one:
 
 * Spring 2009 ICS 667:  [Agile Usage-Centered Design of a Social Networking Contact Book](../raw/master/background/ics667reportJDavidBeutel-final.pdf "report")
 * Fall 2009 ICS 668:  Managing Privacy for Transitive Sharing on a Social Networking Site
-** [literature review](../raw/master/background/2009-ics668-DavidBeutel-Dec20.pdf)
-** [research notes](../blob/master/background/ics668-notes.md)
+  - [literature review](../raw/master/background/2009-ics668-DavidBeutel-Dec20.pdf)
+  - [research notes](../blob/master/background/ics668-notes.md)
 * Spring 2010 ICS 664:  [We'll Call You](../raw/master/background/ICS664FINALREPORT.pdf "report") (partial UI prototype)
