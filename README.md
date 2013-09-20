@@ -53,12 +53,12 @@ Below are samples of the interaction scheme
 from my project for Spring 2009 ICS 667:  Agile Usage-Centered Design of a
 Social Networking Contact Book.
 
-![interaction schemes](../../raw/master/proposal/Agile Interaction Scheme.png)
+![interaction schemes](/proposal/Agile Interaction Scheme.png)
 
 Below is a design from my project for
 Spring 2010 ICS 664:  We'll Call You
 
-![design](../../raw/master/proposal/WCY-design.jpg)
+![design](/proposal/WCY-design.jpg)
 
 Below is a screen-shot from a partial UI prototype of the above project,
 implemented as a Grails web application.
