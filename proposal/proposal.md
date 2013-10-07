@@ -32,18 +32,18 @@ Social Networking Site (literature review)
 Tentative Schedule
 ------------------
 
-* 2013 Sep - research publications and apps since 2009
-* 2013 Oct - design for below issues
-* 2013 Nov - update prototype to current Grails
-* 2013 Nov - authentication via Facebook, Google, etc
-* 2013 Nov - email/notifications
-* 2014 Dec - history/edit/add info
-* 2014 Jan - permissions/privacy
-* 2014 Feb - duplicates/unify/link
-* 2014 Feb - import/export/sync
-* 2014 Mar - user testing
-* 2014 Apr - revisions and retesting
-* 2014 May - write report
+* 2013 Oct - research publications and apps since 2009
+* 2013 Nov - design for below issues
+* 2013 Dec - update prototype to current Grails
+* 2013 Dec - authentication via Facebook, Google, etc
+* 2013 Dec - email/notifications
+* 2014 Jan - history/edit/add info
+* 2014 Feb - permissions/privacy
+* 2014 Mar - duplicates/unify/link
+* 2014 Mar - import/export/sync
+* 2014 Apr - user testing
+* 2014 May - revisions and retesting
+* 2014 Jun - write report
 
 
 Previous Work
