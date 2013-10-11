@@ -170,25 +170,30 @@ Hart, Johnson, & Stent (2007).  More contant - less control: Access control in t
 This was a study of 18 undergraduate students who use Facebook at UNC.  Each was interviewed for about an hour in a usability lab, recording the computer screen, audio, and video.  Each completed a demographic survey and then logged into his/her own Facebook profile, showing the privacy settings and what information was disclosed.  They were interviewed about their motivations, opinions, and decisions, and then viewed four unfamiliar profiles and gave their impressions of each person and profile.
 
 It noted two things about privacy strategies:
+
 1.  They tend to be all or nothing.  There are two approaches: limiting the info given, and changing privacy settings:
-1.a  For settings, 5 participants (28%) restricted all of their profile to only their friends, and 8 participants (44%) added no restrictions (leaving their whole profile open to their network).  Only 5 (28%) used settings between all and nothing.
-1.b  For giving info, the participants chose to either leave all the fields blank, or fill in most of them (except what may be considered redundant or had been added later by Facebook).  There were few who did anything between all and nothing.
+    1.  For settings, 5 participants (28%) restricted all of their profile to only their friends, and 8 participants (44%) added no restrictions (leaving their whole profile open to their network).  Only 5 (28%) used settings between all and nothing.
+    1.  For giving info, the participants chose to either leave all the fields blank, or fill in most of them (except what may be considered redundant or had been added later by Facebook).  There were few who did anything between all and nothing.
 2.  The strategy decision tends to be a one time event.  "Participants reported forgetting what their privacy settings were, or whether they had even changed their default settings."  They make this decision as new users, and don't modify the settings based on ongoing use.
 
 The participants judged disclosures based on two main factors:
+
 1. "what they deemed safe and appropriate" (which is hard to judge for their friends or themselves, since it is appropriate between themselves when they need it, even while it's inappropriate for a stranger who also has access), and
 2. "what seemed to be socially acceptable and normal within their networks."
 
 The study found two main flaws with Facebook privacy:
+
 1.  As users gain experience on Facebook interacting with their friends, they are lulled into the perception of a smaller audience who can access their profile, leading them to reveal more than they intend to the actually larger audience.
 2.  Facebook's user interface for privacy settings is too complicated, comprising many different pages, misleading users into thinking that their settings are more restrictive than they actually are.
 
 Participants reevaluated their privacy strategies after certain events:
+
 1. unwanted contact from stranges,
 2. Facebook introducing the newsfeed, and
 3. participating in this study.
 
 The study suggests several solutions:
+
 1. "enforce, or at least default to, more restrictive settings, particularly for sensitive and risky information."
 2. Make privacy controls highly visible and accessible while modifying the profile.
 3. Promote a clearer understanding of the audience of the information.
@@ -238,9 +243,12 @@ On the other hand, several participants in this study mentioned wanting to be ab
 # Lipford, Hull, Latulipe, Besmer, & Watson (2009).  Visible Flows: Contextual Integrity and the Design of Privacy Mechanisms on Social Network Sites
 
 This 5-page paper is something of a capstone to their previous papers.  It introduces the perspective of "contextual integrity as a framework for analyzing privacy with information technology."  It references Helen Nissenbaum (2004), Privacy as Contextual Integrity, in Washington Law Review.  She suggests two fundamental types of norms for information sharing:
+
 1.  "appropriateness" deals with "the type or nature of information about various individuals that, within a given context, is allowable, expected, or even demanded to be revealed" (for example, sharing your mom's medical history with your doctor, but not your religeous views with your employer), and
 2.  "distribution" covering the "movement, or transfer of information from one party to another or others" (for example, how it's inappropriate for a friend with a radio show to broadcast your personal details that you have shared with her).
+
 The paper claims that Nissenbaum derives two main points from this:
+
 1. "information is always tagged, as it were, with the context in which it is revealed: there is no such thing as context-free information."
 2. The scope of privacy norms depends on the context.  "There is no such thing as a universal privacy norm."
 
@@ -266,6 +274,7 @@ This 1 page paper ends before it offers any usable details, but it prompted me t
 # Tootoonchian, Gollu, Saroiu, Ganjali, & Wolman (2008).  Lockr: Social Access Control for Web 2.0
 
 This 6-page paper goes into more detail about the previous paper's access control scheme.  It lists two requirements and corresponding implementation proposals:
+
 1.  "Provide a simple and flexiable way of defining access control rules." -> use social relationships to describe access control policies
 2.  "Eliminate the management issues associated with using many content sharing sites." -> separate social networks from content delivery and sharing
 
@@ -394,6 +403,7 @@ This paper looks at privacy policies from the perspective of enterprises and the
 It notes problems with the W3C's Platform for Privacy Preferences Project (P3P), which lets web sites publish their privacy policy in XML format, but fails to define clear semantics for it.  The W3C's intent is for browsers to help users automatically enforce their privacy preferences by defining them once in the browser.  It cites CitiGroup's reluctance to use P3P because its unclear semantics may lead to legal and media risk because of misrepresentation.
 
 It also mention's IBM's Enterprise Privacy Authorization Language (EPAL), an access control language with features devoted to privacy protection.  It raises 3 limitations of EPAL:
+
 1.  It's not scalable because it must be enforced at the data level.
 2.  P3P policies cannot or should not be generated from EPAL policies.
 3.  EPAL doesn't handle data flowing to another application with a different privacy policy.  (It notes a "sticky policy paradigm" to associate relevant consents with users' data can help handle this, but that most interfaces don't support sticky policies.)
@@ -425,6 +435,7 @@ Such hardware would allow the SNS to manage transitive access control without tr
 This paper suggests a technique of using tickets and currencies to express sharing agreements.  An absolute ticket gives the holder the right to an absolute amount of the granted resource, while a relative ticket is in terms of a "currency".  The currency is backed by some amount of resources, either locally and/or transitively, and either absolute and/or relative.  The percentage of the relative ticket to its total currency gives the ticket holder the right to that percentage of the resources backing the currency.
 
 A currency is a level of indirection which provides two advantages:
+
 1.  A currency can be inflated or deflated by increasing or decreasing the number of units in the currency, without changing the tickets.
 2.  A participant can create additional, "virtual currencies", which "decouple the quantity of resources tranferred along some subset of its agreements from fluctuations in another subset."
 
