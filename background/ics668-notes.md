@@ -372,7 +372,8 @@ The paper does not detail support for transitivity.   It does not mention what h
 
 The SWRL does support friend-of-friend access control, or more complex constraints, via explicit rules, such as:
 
-    Photo(?targetObject) & Owns(?owner, ?targetObject) & Friend(?owner, ?targetSubject1) & Friend(?targetSubject1, ?targetSubject2) => Read(?targetSubject2, ?targetObject)
+    Photo(?targetObject) & Owns(?owner, ?targetObject) & Friend(?owner, ?targetSubject1) &
+        Friend(?targetSubject1, ?targetSubject2) => Read(?targetSubject2, ?targetObject)
 
 This access control by length of path does not take a simple number, such as 5 hops or less, so it would require 5 SWRL rules.  This does not seem like a significant performance problem, and few users would want to allow very large numbers of hops without just making the access public.  Also, the Admin authorization resides with the owner, unless there are some other bootstrap or admin production rules as I mentioned above.
 
