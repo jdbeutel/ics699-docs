@@ -84,3 +84,55 @@ like a git repo, because the amount of data involved for
 each user's private contacts should be small enough to allow that.
 Nevertheless, to avoid several of the drawbacks outline by
 this paper, I will use a centralized architecture.
+
+
+## 2013-10-24 [Cutillo, Molva, & Strufe (2009).  Safebook: A Privacy-Preserving Online social Network Leveraging on Real-Life Trust](safebook.pdf)
+
+This article describes a distributed social network system.
+It suggests that "a realistic compromise between privacy
+and performance is feasible."  Privacy seems to be of utmost importance
+to its authors.  It is the kind of system that the previous paper
+warned against.
+
+The article assumes that "the protection of the user's privacy
+to be the main objective for SNS."  That seems oxymoronic to me.
+It has several more requirements like that, of dubious origin
+and justification.  It lists a number of security objectives
+and attacks.
+
+The article describes a three-layer architecture:
+* social network
+* application services
+* communication and transport
+
+Each user in the network has his own server peer,
+organized into a "matryoshka" structure to provide anonymity and
+redundancy.  Adjacent nodes are trusted, personal contacts
+in the real world, mirroring data for high availability, 
+and forming shells like an onion router (i.e., TOR).
+At a safe distance of hops away, the node's existance is
+published at an entry point on the matroyshka's outer shell.
+(However, since the node's true identity is supposed to be unknown
+to all but its adjacent nodes, I do not know how the middle or
+outer shells avoid routing back to a node on the inner shell.)
+
+To avoid attacks related to identity, the system depends on
+a trusted identification service.  It uses an out-of-band
+process and "set of properties that uniquely identify a party in
+real life, such as full name, birth date, birth place, and so on."
+It hashes that to provide a unique node identifier and pseudonym.
+The article claims that this does not pose a privacy threat,
+because the service "cannot trace users or their messages;
+nor can it peek into their privatae data."  Still, it seems contradictory
+to me for a system to require real-life identification, but put such
+complexity into the matroyshka structure for the sake of pseudonymity.
+How popular would a pseudonymous social network be, anyway? 
+Users would need to interact with others a lot using their pseudonym,
+to generate interest.  (I suppose there are some examples of that,
+however, such as Twitter.)
+
+Over all, this article's system seems like a solution looking for a real
+problem.  I doubt that enough users would ever go to this much trouble,
+to allow anything like this article to work.  However, my project paper
+might look like this article, describing a recently built prototype.
+Hopefully its specification will be more realistic.
