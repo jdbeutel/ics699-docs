@@ -94,7 +94,7 @@ and performance is feasible."  Privacy seems to be of utmost importance
 to its authors.  It is the kind of system that the previous paper
 warned against.
 
-The article assumes that "the protection of the user's privacy
+The article assumes "the protection of the user's privacy
 to be the main objective for SNS."  That seems oxymoronic to me.
 It has several more requirements like that, of dubious origin
 and justification.  It lists a number of security objectives
