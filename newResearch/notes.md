@@ -136,3 +136,70 @@ problem.  I doubt that enough users would ever go to this much trouble,
 to allow anything like this article to work.  However, my project paper
 might look like this article, describing a recently built prototype.
 Hopefully its specification will be more realistic.
+
+
+## 2013-10-29 [Shakimov, Lim, Caceres, Cox, Li, Liu, & Varshavsky (2011).
+Vis-a-Vis: Privacy-Preserving Online Social Networking via
+Virtual Individual Servers](comsnets11.pdf)
+
+This article describes another distributed social networking system.
+Its authors implemented a prototype of a location-based online
+social network (OSN), such as Foursquare.  Each user has his own
+virtual individual server (VIS), running in a cloud such as
+Amazon EC2 or Rackspace.  A user can create a group, administered
+by his VIS, which other users can join, to share location updates
+and "check-ins" with each other.
+
+An elegant aspect of the design is its dual use of the location data.
+Users can disclose their locations with varying degrees of vagueness.
+Their VISs then self-organize into a location tree, so the network
+topology reflects their physical location, minimizing latency.
+
+Experimental results compare latency between centralized and
+distributed versions of this OSN.  Of course, the centralized version
+is faster for all operations, by orders of magnitude for some.
+However, the article points out that the last mile 3G connection to
+smart-phones is even slower, so the decentralized slowness is not
+an order of magnitude slower than that, and not even significantly
+slower for certain operations.  However, those smart-phones were
+just terminals, with the distributed VIS still in the cloud.  These
+results suggest to me that a VIS hosted in a smart-phone would have
+untenable latency, despite the elegant design of the self-organizing
+location tree, unless perhaps there were enough to form a mesh
+network.  The distributed possibilities are tantalizing, but impractical.
+
+I have several concerns about the design.  First of all, I cannot
+imagine enough users paying to host their own VIS.  If they were willing
+to pay for OSN services, to avoid advertising and maintain IP rights,
+it would be much cheaper to subscribe to a centralized OSN that features
+such a business model (as the cloud computing utilities do).
+The authors assume that the hosts have a Trusted Platform Module (TPM)
+that can prove to users and other nodes that the correct software
+is executing.  I do not understand what that would accomplish,
+besides passing the buck.  I think they are trying to mitigate the
+storage of unencrypted data in the cloud, which enables services
+such as range queries over location data, but given this hosting,
+I do not see the point of making the servers individual.
+
+My second concern is with the integration of major OSNs, such as
+Facebook.  Vis-a-Vis has a browser extension to rewrite Facebook
+pages, filling in hooks to Vis-a-Vis.  That sounds like a
+maintenance nightmare, as Facebook changes its page designs.
+
+My final concern is with the maintenance of groups.
+A group descriptor includes the owner's public key
+and the name of the group (visible to group members),
+distributed out of band.  This avoid naming conflicts,
+but doesn't it lead to many overlapping groups?
+Suppose I have a group of friends at school or work,
+and not all of them know each other.  Each member
+would have a somewhat different group of their own friends.
+In Vis-a-Vis, each would need to join the group of
+each of their friends, and each of their friends would
+need to join their group.  Is everyone posting their
+check-ins to their own group, and looking at check-ins
+from everyone else's group?
+
+My project paper might look like this article, as well.
+It does not include an experiment, but it will have an
+architecture, implementation, and evaluation.
