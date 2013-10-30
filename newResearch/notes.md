@@ -138,9 +138,7 @@ might look like this article, describing a recently built prototype.
 Hopefully its specification will be more realistic.
 
 
-## 2013-10-29 [Shakimov, Lim, Caceres, Cox, Li, Liu, & Varshavsky (2011).
-Vis-a-Vis: Privacy-Preserving Online Social Networking via
-Virtual Individual Servers](comsnets11.pdf)
+## 2013-10-29 [Shakimov, Lim, Caceres, Cox, Li, Liu, & Varshavsky (2011).  Vis-a-Vis: Privacy-Preserving Online Social Networking via Virtual Individual Servers](comsnets11.pdf)
 
 This article describes another distributed social networking system.
 Its authors implemented a prototype of a location-based online
