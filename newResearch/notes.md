@@ -217,7 +217,8 @@ applications are ambulation, tracking the user's movements (e.g., walking
 or running, speed, calories burned, incapacity, etc), and waking-survey,
 tracking the user's sleep habits and problems.
 
-The paper lists three system design principles:
+The paper lists three system design principles,
+which look good for my project, too:
 * participant primacy - users retain control over their raw data and can make decisions about what parts to share
 * data legibility - the system provides high-level tools and guidance on the implications of users' sharing decisions
 * long-term engagement - help uses make continuing, ongoing decisions about their sharing policies
@@ -239,7 +240,7 @@ changes to the access control lists, for preventing the disclosure of
 that information, while still making use of the third-party apps.
 
 For a project trying to improve privacy, it is ironic that that kind of
-automated analysis is the same as the NSA would do on mobile phone
+automated analysis seems like what the NSA would do on mobile phone
 metadata, taken directly from the carriers, regardless of a PDV.
 The cloud hosting the PDV is also a target, although the paper assumes
 an economic and legal framework that reduces that risk.  The main
