@@ -201,3 +201,67 @@ from everyone else's group?
 My project paper might look like this article, as well.
 It does not include an experiment, but it will have an
 architecture, implementation, and evaluation.
+
+
+## 2013-11-04 [Mun, Hao, Mishra, Shilton, Burke, Estrin, Hansen, & Govindan (2010).  Personal Data Vaults: A Locus of Control for Personal Data Streams](mun2010.pdf)
+
+This paper describes a third decentralized personal data architecture.
+A PDV allows the user to maintain ownership of his data,
+while carefully providing just the minimum necessary to third-party
+applications of the user's choosing.
+
+The data in question, "personal data streams", come from mobile devices,
+such as smart phones, in a constant telemetry, such as location and
+motion, with implications on health, privacy, and safety.  The example
+applications are ambulation, tracking the user's movements (e.g., walking
+or running, speed, calories burned, incapacity, etc), and waking-survey,
+tracking the user's sleep habits and problems.
+
+The paper lists three system design principles:
+* participant primacy - users retain control over their raw data and can make decisions about what parts to share
+* data legibility - the system provides high-level tools and guidance on the implications of users' sharing decisions
+* long-term engagement - help uses make continuing, ongoing decisions about their sharing policies
+
+Three elements of the system are detailed in the paper:
+* granular access control lists - supporting 3 constraints on the data provided to a third-party app:
+    * bounds - e.g., allowing location data within certain spacial areas or time intervals
+    * precision - making location or time less specific, e.g., on the big island last week
+    * frequency - the resolution of data samples
+* trace-audit - showing the user which apps have gotten what data
+* rule recommender - suggesting improvements to the user's access control lists
+
+The rule recommender is the most interesting part.  It plays the role
+of a malicious app, trying to automatically infer from the raw data
+whatever privacy-invasive information it can.  It uses cluster analysis
+to identify significant locations and patterns, warns the user
+about what can be infered from the raw data, and suggests minimal
+changes to the access control lists, for preventing the disclosure of
+that information, while still making use of the third-party apps.
+
+For a project trying to improve privacy, it is ironic that that kind of
+automated analysis is the same as the NSA would do on mobile phone
+metadata, taken directly from the carriers, regardless of a PDV.
+The cloud hosting the PDV is also a target, although the paper assumes
+an economic and legal framework that reduces that risk.  The main
+adversaries envisioned by the paper are third-party apps.
+
+I see a parallel between that system and my project, in the choice of
+precision to share location data.  From a brief user study (focus
+group of one, actually), I planned to allow a choice of which parts
+of an address to share (e.g., state, city, zip code, street, etc).
+The paper is more sophisticated, converting a GPS location to 
+a less granular one (e.g., city).  That does not seem useful for
+my project, though, since I already have address parts that
+provide the user with concrete examples of the data with which
+he is already working.
+
+I am not sure if elements of this system would be good for my project.
+The PDV deals with a constant stream of location data, which is
+a lot more data per user than my app will get.  The paper listed
+usability as a critical issue, but left it for future work.
+Its UI samples are for visualizing a lot of location data, on a map,
+highlighting patterns that it detected, and letting the user adjust
+the settings to hide them.  It looks like a good UI for that,
+but the question remains how well actual users will do with it,
+and whether they are willing to spend that much time protecting
+their private data, no matter how good the UI is.
