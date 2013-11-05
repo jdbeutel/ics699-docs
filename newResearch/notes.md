@@ -116,24 +116,24 @@ published at an entry point on the matroyshka's outer shell.
 to all but its adjacent nodes, I do not know how the middle or
 outer shells avoid routing back to a node on the inner shell.)
 
-To avoid attacks related to identity, the system depends on
-a trusted identification service.  It uses an out-of-band
-process and "set of properties that uniquely identify a party in
-real life, such as full name, birth date, birth place, and so on."
+To avoid attacks related to identity (such as Sybil or impersonation),
+the system depends on a trusted identification service.  It uses an
+out-of-band process and "set of properties that uniquely identify a party
+in real life, such as full name, birth date, birth place, and so on."
 It hashes that to provide a unique node identifier and pseudonym.
-The article claims that this does not pose a privacy threat,
-because the service "cannot trace users or their messages;
-nor can it peek into their privatae data."  Still, it seems contradictory
-to me for a system to require real-life identification, but put such
-complexity into the matroyshka structure for the sake of pseudonymity.
-How popular would a pseudonymous social network be, anyway? 
-Users would need to interact with others a lot using their pseudonym,
-to generate interest.  (I suppose there are some examples of that,
-however, such as Twitter.)
+The article claims that this does not pose a privacy threat, because
+the service "cannot trace users or their messages; nor can it peek into
+their private data."  Still, the cost of getting real life, trusted
+identification seems wasted in a system that publishes only pseudonyms.
+Likewise, the complexity of the matroyshka structure seems wasted in a
+system requiring real-life identification.  Furthermore, pseudonymous
+social networks are not as popular in the United States.  Twitter may
+be a counter-example, but its posts are public, so its privacy is mainly
+from its pseudo-anonymity.
 
 Over all, this article's system seems like a solution looking for a real
-problem.  I doubt that enough users would ever go to this much trouble,
-to allow anything like this article to work.  However, my project paper
+problem.  I doubt that enough users would go to this much trouble,
+to allow something like this to work.  However, my project paper
 might look like this article, describing a recently built prototype.
 Hopefully its specification will be more realistic.
 
