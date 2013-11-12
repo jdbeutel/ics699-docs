@@ -65,7 +65,7 @@ or not.
 Finally, it offers recommentations:
 
 1. Consider the economic feasibility of your design.
-2. Pay heed to coneptual fidelity.
+2. Pay heed to conceptual fidelity.
 3. Incorporate other notions of regulability.
 4. Offer advantages other than privacy to users.
 5. Design with standardization in mind.
@@ -266,3 +266,18 @@ the settings to hide them.  It looks like a good UI for that,
 but the question remains how well actual users will do with it,
 and whether they are willing to spend that much time protecting
 their private data, no matter how good the UI is.
+
+
+## 2013-11-11 [Waters, Brent (2011).  Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization](WatersCP08.pdf)
+
+This paper goes into detail about an improved implementation of a certain
+kind of attribute-based encryption (ABE), including proofs and several
+appendixes.  I selected this paper for my reseach update because one I
+read in 2009, about Persona, mentioned ABE, and it sounded interesting.
+Baden, Bender, Spring, Bhattacharjee, & Starin (2009).
+
+However, after reading the first few pages of this paper, it was
+clear that it would not be useful for my project.  ABE seems good for
+implementing a distributed system, but such a system has drawbacks as
+noted above, so my current plan is to implement a centralized system.
+I need to focus on the UI and conceptual model.
