@@ -5,7 +5,7 @@ J. David Beutel
 2013-12-10
 
 
-delay
+Delay
 -----
 
 I started my ICS 699 project at the end of August, but was interrupted
@@ -15,7 +15,7 @@ so we postponed the schedule by a month.  June is my current target
 to finish the project.
 
 
-research
+Research
 --------
 
 To update my literature review from 2009, I found [five
@@ -34,12 +34,12 @@ I could continue researching, but I had to go on with the project.
 I doubt that I am overlooking any important research.
 
 
-design
+Design
 ------
 
 I updated the design of my previous project to the distributed data model
-that I suggested in my proposal.  Thinking it through, it still seems
-better.  My previous design was like Wikipedia, where users collaborate
+that I suggested in my proposal.  It still seems better, so far.
+My previous design was like Wikipedia, where users collaborate
 to keep the same instance of data up to date.  My new design is more like
 Github, when users fork their own copy of the data and share updates.
 Forking is more complicated, but it matches better with what users do
@@ -48,7 +48,7 @@ Although the model is distributed, I will still be implementing it on
 a centralized architecture.
 
 
-### data model
+### Data Model
 
 The Wikipedia model was oriented around who can view or edit each
 instance of data.  The UI included a color key on expansion toggle
@@ -84,7 +84,23 @@ can provide different streams of updates from different sources,
 and share updates with different groups.
 
 
-### editing UI
+### Privacy
+
+The contacts in my previous model were discoverable, exposing
+name and city to the public, like on Facebook, so users could
+send access requests to the (hidden) owner of the single instance
+of contact data.  On the other hand, the owner of the data
+had full control over it, even if it came from other users,
+which I expected to increase privacy, but raised issues of
+fairness and expectations of the conceptual model.
+In my new model, the contacts are not discoverable; each user
+has her own contacts, and can choose to share them as she wishes.
+The app supports offers, but not requests, to share data.
+If users make requests, they will need to be out-of-band,
+outside the app.
+
+
+### Editing UI
 
 Since the app will be used more to read than to write,
 I am going with a more conventional mode for editing.
@@ -103,9 +119,26 @@ still be undone via history, although other users may have already
 accepted that change.
 
 
-implementation
+Implementation
 --------------
 
 I have just started updating my previous prototype to Grails 2.3.
 For my current project, I am planning to make a single-page
 AJAX app, using AngularJS and REST features in Grails 2.3.
+
+
+Updated Schedule
+------------------
+
+* 2013 Oct - research publications and apps since 2009
+* 2013 Nov - design for below issues
+* 2013 Dec - update prototype to current Grails
+* 2013 Dec - authentication via Facebook, Google, etc
+* 2014 Jan - email/notifications
+* 2014 Jan - history/edit/add info
+* 2014 Feb - permissions/privacy
+* 2014 Mar - duplicates/unify/link
+* 2014 Mar - import/export/sync
+* 2014 Apr - user testing
+* 2014 May - revisions and retesting
+* 2014 Jun - write report
