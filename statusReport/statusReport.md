@@ -47,6 +47,9 @@ in the real world with their own physical address books or smartphones.
 Although the model is distributed, I will still be implementing it on
 a centralized architecture.
 
+
+### data model
+
 The Wikipedia model was oriented around who can view or edit each
 instance of data.  The UI included a color key on expansion toggle
 buttons to indicate that zooming in will reveal editable data.
@@ -79,6 +82,26 @@ missing data be filled in, or inconsistent data be unifed.
 Data that are linked are displayed together.  Duplicate data
 can provide different streams of updates from different sources,
 and share updates with different groups.
+
+
+### editing UI
+
+Since the app will be used more to read than to write,
+I am going with a more conventional mode for editing.
+The data will not be in input fields until the user presses
+the Edit button.  Then Edit becomes Save, a Cancel link is added,
+and the collapse buttons are disabled, preventing the user from
+hiding unsaved data.  Changed input fields and the Save button
+will still be highlighted in yellow.  If possible, warn the
+user about closing a tab or navigating off a page with unsaved data.
+
+After Cancel, a Redo button appears.  Likewise, after Save,
+an Undo button appears.  The undo period is limited to 10 minutes,
+after which other users may receive update notifications,
+and email may be sent.  After that timeout, the change can
+still be undone via history, although other users may have already
+accepted that change.
+
 
 implementation
 --------------
