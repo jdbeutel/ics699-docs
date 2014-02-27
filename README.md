@@ -8,6 +8,9 @@ Fall 2013 and Spring 2014
 
 * [proposal](proposal/proposal.md)
 * [research notes](newResearch/notes.md)
+* status reports
+  - [2013 Fall](statusReport/statusReport-2013-fall.md)
+  - [2014 January & February](statusReport/statusReport-2014-01and2.md)
 
 
 ## background
