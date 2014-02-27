@@ -1,6 +1,6 @@
 contact info sharing web app
 ============================
-ICS MS project status report 2014 January & February
+ICS MS project status report 2014 January & February  
 J. David Beutel  
 2014-02-26
 
@@ -95,22 +95,43 @@ it to the repo, so I can eventually make the code repos public again.
 I am planning to make a primarily single-page
 AJAX app, using AngularJS and REST features in Grails 2.3.
 I attended an AngularJS hackfest on Feb 13,
-where I tried just a taste,
+where I tried a small sample,
 but I need to go through AngularJS tutorials in detail.
 
 
 Updated Schedule
 ------------------
 
+I am behind my tentative schedule, and need to update it.
+
+I have done most of the December tasks,
+updating the prototype to current Grails,
+and authentication via Facebook & Google.
+I have also made a little progress on some January and February tasks,
+sending a confirmation email for registration,
+and finding that the Spring Security Access Control List
+plugin may help me implement permissions.
+
+However, I did not get a lot done in February.
+I was busy updating my work project to the current version
+of Grails.  (This should help my MS project, too.)
+
+I would like to extend my schedule by two months,
+through August, and work on reimplementing the UI in AngularJS
+next.  Redoing the UI now will allow me to implement
+the additional features in the new UI, with less to redo later.
+
 * 2013 Oct - research publications and apps since 2009
 * 2013 Nov - design for below issues
-* 2013 Dec - update prototype to current Grails
-* 2013 Dec - authentication via Facebook, Google, etc
-* 2014 Jan - email/notifications
-* 2014 Jan - history/edit/add info
-* 2014 Feb - permissions/privacy
-* 2014 Mar - duplicates/unify/link
-* 2014 Mar - import/export/sync
-* 2014 Apr - user testing
-* 2014 May - revisions and retesting
-* 2014 Jun - write report
+* 2013 Dec - user testing on old prototype
+* 2014 Jan - update prototype to current Grails
+* 2014 Feb - authentication via Facebook, Google, etc
+* 2014 Mar - redo UI with AngularJS
+* 2014 Mar - email/notifications
+* 2014 Apr - history/edit/add info
+* 2014 Apr - permissions/privacy
+* 2014 May - duplicates/unify/link
+* 2014 May - import/export/sync
+* 2014 Jun - user testing
+* 2014 Jul - revisions and retesting
+* 2014 Aug - write report
