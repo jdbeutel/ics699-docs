@@ -8,12 +8,14 @@ J. David Beutel
 Settings Tab
 ------------
 
-I finished converting the Settings page to Angular JS,
+I finished converting the Settings page to
+[Angular JS](https://angularjs.org/),
 and implementing its UI improvements mentioned in my last status report.
 
 ### Interactive Form Validation
 
-HTML5 form validation was insufficient, even with Angular, because:
+[HTML5 form validation](http://www.html5rocks.com/en/tutorials/forms/constraintvalidation/)
+was insufficient, even with Angular, because:
 * it cannot confirm matching passwords, etc.
 * browsers do not treat an AJAX request the same as a form submit
 * Safari (including iPad/iPhone) provides no UI for this validation
@@ -35,7 +37,8 @@ This eliminates an error from the server that the users would
 not understand or expect, but was likely to happen if a user is accessing
 the web app from multiple browsers or browser-tabs simultaneously.
 
-Grails' Hibernate still uses optimistic locking within a request to prevent race conditions,
+[Grails'](https://grails.org/) [Hibernate](http://hibernate.org/orm/)
+still uses optimistic locking within a request to prevent race conditions,
 but it does not extend through the long cycle to the browser.  So, it is unlikely
 to generate an error, only if the user submits multiple simultaneous changes.
 
@@ -161,7 +164,8 @@ and look into hosting again when it is feature complete.
 Contacts Tab
 ------------
 
-I started converting the app's main tab, Contacts, to Angular.
+I started converting the app's main tab, Contacts, to Angular and AJAX,
+from the Prototype JavaScript library.
 I also added new features, such as editing, sorting, and paging,
 because they had a large impact on the implementation in Angular.
 However, I have not finished the conversion of this tab.
@@ -172,7 +176,9 @@ The preferred email, phone, and address that are displayed on the
 top-level list were virtual properties on a Person, to be elected
 from a Person's available properties or sub-properties, according to the user's
 preferences.  But, to implement sorting and paging on those properties
-via the database (i.e., GORM criteria), I need a copy of the preferred property
+via the database (i.e.,
+[GORM criteria](http://grails.org/doc/latest/guide/GORM.html#criteria)),
+I need a copy of the preferred property
 on the top-level Person, de-normalizing the database.  I was able to
 implement that now, since I had changed the app design to make each user
 have their own copy of a shared Person.
@@ -181,7 +187,7 @@ I added explicit buttons for sorting, showing the selected column
 and direction of the sort, instead of using the column headers as
 implicit buttons.
 
-For paging, the default Grails buttons provide a navigation link
+For paging, the prototype's default Grails buttons provided a navigation link
 to a nearby page of the sorted search results.  With Angular and AJAX, 
 however, there is no need for the browser to throw out the contents of the current page.
 The initial, limited page size (10 entries) allows the browser to display the results faster,
@@ -198,8 +204,10 @@ When I implemented search, I had to redo the sorting and paging.
 
 Clicking anywhere on the row of a contact expands it to display its details.
 Several users tried to do that on the prototype, overlooking the row's expand/collapse button.
-Any number of them can be expanded at the same time.  Each has name details
+Any number of contacts can be expanded at the same time.  Each has name details
 that can be further expanded.  Each expanded part can be edited and saved independently.
+The new design does not need to indicate which contacts can be edited,
+because all the contacts that the user can see will be her own personal copies of them.
 
 Before finishing the conversion of my original prototype,
 I started adding the editing of contacts, because it had such
@@ -227,17 +235,21 @@ a text input field with a button to pop-up a calendar.
 
 ### To Do
 
-I have not finished the Contacts conversion or new features yet.
+I have not yet finished the conversion or new features of the Contacts tab.
 Here are some of the remaining issues on that tab, 
 which I may not have time to resolve in this project.
 
-* listing connections and drilling down into them
+* listing a contact's connections, and drilling down into them
 * bug: when modifications are undone manually, undo the highlighted fields and disable the Save button
-* displaying Birth Date in preferred format (and separating date from time preference)
+* Birth Date
+  * display in preferred format
+  * separate date from time preference settings
+  * bug: after first use, calendar fails to reappear
+  * bug: after saving or canceling change, field and Save button remain highlighted on next edit
 * photo upload
-** progress bar and Cancel Upload button are not displayed
-** drag-and-drop border does not hug the image or animate to suggest drop-ability
-** making the Edit/Cancel button revert to original photo after uploading a new one
+  * progress bar and Cancel Upload button are not displayed
+  * drag-and-drop border does not hug the image or animate to suggest drop-ability
+  * making the Edit/Cancel button revert to original photo after uploading a new one
 * adding new fields
 * displaying more properties
 * highlighting and automatically expanding matching search results
@@ -270,7 +282,8 @@ rating, with the most Grails users and documentation, and it seemed
 to be up to date.  Unfortunately, I could not get it to work as I
 expected, to search within related objects, such as a Person's
 Places.  Lucene builds its own index and searches on documents,
-like several other NoSQL databases that have become popular lately.
+like [other NoSQL databases](http://en.wikipedia.org/wiki/NoSQL#Document_store)
+that have become popular lately.
 Each Person document added to the Lucene index needed to be composed
 of all the related objects to be searched.
 
@@ -278,9 +291,10 @@ While trying to debug this, I had difficulty seeing what had gone
 into the Lucene index, and why.  I tried installing
 [Luke](https://code.google.com/p/luke/), a Lucene index browser,
 but still could not understand what was going on.  I also found
-that development on Compass had halted several years ago, with [the
+that development on Compass had halted, with [the
 author starting Elasticsearch
-instead](http://thedudeabides.com/articles/the_future_of_compass/).
+instead](http://thedudeabides.com/articles/the_future_of_compass/),
+over four years ago.
 Compass and Elasticsearch are key, because they map the Hibernate/GORM
 entities to Lucene documents.
 
@@ -328,13 +342,12 @@ only the user's own copies of contacts, there will probably be a limited amount,
 which raises the possibility of doing the search entirely within the browser.
 All of the user's contacts would need to be sent to the browser for any search,
 and the implementation would be different from the current one using
-Elasticsearch on the server.  However, initially I would probably try expanding
-matches in the browser while still doing the search on the server.
+Elasticsearch on the server.  However, initially I would probably try to expand
+matches in the browser while continuing to do the search on the server.
 
-Although I have experience with database searches, this whole search
-implementation has been more like the kinds of things that I have
-done in an artificial intelligence course.  These frameworks were new for me,
-and took up most of my summer.
+Although I had experience with database searches, this search
+was more like what I did in an artificial intelligence course.
+These frameworks were new for me, and took up a lot of the summer.
 
 
 Schedule
@@ -350,9 +363,9 @@ to just the UI improvements that I could do.
 * 2013 Dec - user testing on old prototype
 * 2014 Jan - update prototype to current Grails
 * 2014 Feb - authentication via Facebook & Google
-* 2014 Mar..Apr - redo Settings UI with Angular
-* 2014 May..Jun - cloud hosting (Heroku & Jelastic)
-* 2014 Jul..Aug - search Contacts
+* 2014 Mar & Apr - redo Settings UI with Angular
+* 2014 May & Jun - cloud hosting (Heroku & Jelastic)
+* 2014 Jul & Aug - search Contacts
 * 2014 May..Sep - redo and edit Contacts UI with Angular
 * 2014 Sep - update login page style
 * 2014 Oct 2 - limited user testing
