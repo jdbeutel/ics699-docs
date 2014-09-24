@@ -12,6 +12,7 @@ Fall 2013 and Spring 2014
   - [2013 Fall](statusReport/statusReport-2013-fall.md)
   - [2014 January & February](statusReport/statusReport-2014-01and2.md)
   - [2014 March](statusReport/statusReport-2014-03.md)
+  - [2014 April - September](statusReport/statusReport-2014-04thru09.md)
 
 
 ## background
