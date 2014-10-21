@@ -1,13 +1,29 @@
 contact info sharing web app
 ============================
-ICS MS project proposal  
+final report  
+ICS 699 project  
 J. David Beutel  
-2013-08-20
+2014-10-20
 
-For my ICS 699 project, I would like to implement a contact information
-sharing web application.  It will enable friends and family to collaborate
-in maintaining their address books.  The biggest challenge is how to
-manage the privacy of third-party information.
+Introduction
+------------
+
+I tried to implement a web application for sharing contact information,
+to enable friends and family to collaborate in maintaining their address
+books.  For years, I have wanted such an app for my own use, and I did
+several projects building towards it.  The more preparatory work I did,
+the more daunting it became, until I doubted whether I could complete an
+implementation in just 6 credit-hours.  Nevertheless, I finally decided
+that I had to try it anyway.
+
+The biggest challenge that I anticipated was how to
+manage the privacy of third-party information, in a way
+that is easy to use.  Unfortunately,
+I never got to that functionality, because I was dealing
+with more fundamental issues first.
+I started with a partial UI prototype that I made for
+a project in Spring 2010 (ICS 664).
+... etc, come back and summarize after adding the rest of the reports...
 
 
 Background
@@ -64,7 +80,7 @@ Below is a screen-shot from a partial UI prototype of the above project,
 implemented as a Grails web application.
 Due to time constraints, it does not actually implement editing or adding
 contact information, permissions, history, search, notifications, etc.
-I would like to do all that in this project.
+I wanted to do all that in this project.
 
 ![design](WCY-prototype.png)
 
@@ -79,15 +95,18 @@ address connects to the physical world, so most people don't want
 theirs to be public.  Deciding how to share ones own contact information with
 a second party is straightforward; several apps already support this,
 such as Google, Facebook, and Plaxo.  (See examples below.)
-This limitation encourages the spread of these networks,
-but it is unlikely to get all of ones contacts
-to join the same network and manage their own contact information,
-whether due to some choosing other networks, or to privacy concerns.
+However, these networks do not support the sharing of third-party
+information, so their users are encouraged to get their contacts
+to join the same network.  While that helps to spread the network,
+one cannot expect to get all of ones contacts
+to join and manage their own contact information.
+Some will choose to join other networks instead, or refrain entirely
+due to privacy concerns.
 
 This forces one to manage other people's contact information
 in ones own address book.  So, why not collaborate?
-Well, sharing a third party's contact information with second parties
-involves some wicked problems.
+The difficulty is that sharing a third party's contact information
+with second parties involves some wicked problems.
 
 Suppose that my grandmother does not
 use the app, so I input her address myself.  I know that she would
