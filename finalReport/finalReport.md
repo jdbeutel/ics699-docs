@@ -45,23 +45,6 @@ Social Networking Site (literature review)
 * Spring 2010 ICS 664:  We'll Call You (partial UI prototype)
 
 
-Tentative Schedule
-------------------
-
-* 2013 Oct - research publications and apps since 2009
-* 2013 Nov - design for below issues
-* 2013 Dec - update prototype to current Grails
-* 2013 Dec - authentication via Facebook, Google, etc
-* 2013 Dec - email/notifications
-* 2014 Jan - history/edit/add info
-* 2014 Feb - permissions/privacy
-* 2014 Mar - duplicates/unify/link
-* 2014 Mar - import/export/sync
-* 2014 Apr - user testing
-* 2014 May - revisions and retesting
-* 2014 Jun - write report
-
-
 Previous Work
 -------------
 
@@ -320,47 +303,14 @@ third-party information.
 ![Plaxo address book example](Plaxo - Address Book.png)
 
 
-References
-----------
-
-Abdul-Rahman, A., & Hailes, S. (2000).
-Supporting Trust in Virtual Communities.
-In Hawaii International Conference on System Sciences 33, pp.1769-1777, 2000.
-
-Baden, R., Bender, A., Spring, N., Bhattacharjee, B., & Starin, D. (2009).
-Persona: an online social network with user-defined privacy.
-SIGCOMM Comput. Commun. Rev., 39(4), 135-146. doi: 10.1145/1594977.1592585.
-
-Jøsang, A. (2001).
-A logic for uncertain probabilities.
-International Journal of Uncertainty, Fuzziness
-and Knowledge - Based Systems, 9(3):279-311, June 2001.
-
-Nissenbaum, H. (2004).
-Privacy as Contextual Integrity.
-Washington Law Review 79 (2004), 101- 39.
-
-Shand, B., Dimmock, N., & Bacon, J. (2003).
-Trust for Ubiquitous, Transparent Collaboration.
-First IEEE International Conference on Pervasive Computing and Communications.
-
-
-
-contact info sharing web app
-============================
-ICS MS project status report  
-J. David Beutel  
-2013-12-10
-
-
 Delay
 -----
 
-I started my ICS 699 project at the end of August, but was interrupted
-September 6 when hit by a truck (breaking my thumb).  It required
-surgery on September 16.  This took time to arrange and recover from,
-so we postponed the schedule by a month.  June is my current target
-to finish the project.
+A couple weeks into the 2013 Fall semester, I was hit by a truck
+and broke my thumb.  It required surgery and physical therapy.
+Arranging for my medical care, recovering, and dealing with the
+insurance and liability took a lot of unplanned time.
+This delayed the start of my project.
 
 
 Research
@@ -368,48 +318,69 @@ Research
 
 To update my literature review from 2009, I found [five
 publications](../newResearch) since then that referenced the
-same references, and looked interesting.  However, when I [read
-them](../newResearch/notes.md), they did not provide answers to the design
-issues of my current project.
+same references, and looked interesting.  I read them and
+took [notes](../newResearch/notes.md).  Unfortunately, they
+did not provide answers to the design issues of my current project.
 
-The best use I can make of the new research, I think, is as examples of
-what my final report might look like for this project.  One also supported
-my decision to not use a decentralized architecture for the app.  I am
-tempted by such an architecture, because it would mirror the data model,
-but it would just complicate the project for no real benefit.
+The best use I could make of the new research, I thought,
+was as examples of what this final report might look like.
+However, those papers had constraints on their length and
+content that this report does not, and on the other hand,
+this report needs to include more details about my work.
+So, after all, I did not use those papers as a model for this report.
 
-I could continue researching, but I had to go on with the project.
-I doubt that I am overlooking any important research.
+One use that I actually did make was of a position paper (Narayanan et al,
+2012) that supported my decision to not use a decentralized architecture
+for the app.  I was tempted by such an architecture, because it would
+mirror the data model, but the paper confirmed that it would just
+complicate the project for no real benefit.
+
+I could have continued researching, but I had to go on with the project.
+I doubt that I overlooked any important research.
 
 
 Design
 ------
 
-I updated the design of my previous project to the distributed data model
-that I suggested in my proposal.  It still seems better, so far.
+I updated the design of my 2010 project to the distributed data model
+that I suggested in the unification section above.
 My previous design was like Wikipedia, where users collaborate
 to keep the same instance of data up to date.  My new design is more like
 Github, when users fork their own copy of the data and share updates.
 Forking is more complicated, but it matches better with what users do
 in the real world with their own physical address books or smartphones.
-Although the model is distributed, I will still be implementing it on
-a centralized architecture.
+Although the data model is distributed, the architecture is still
+centralized, i.e., the web app runs on a single server, containing
+each user's copy of the data.
 
 
 ### Data Model
 
-The Wikipedia model was oriented around who can view or edit each
-instance of data.  The UI included a color key on expansion toggle
-buttons to indicate that zooming in will reveal editable data.
+My old, Wikipedia model was oriented around who can view or edit each
+instance of data.  In this model, the data was central and unique,
+intended to reflect the objective truth.
+The UI included a color key on expansion toggle
+buttons to indicate that zooming in will reveal editable fields.
 It also displayed the owner of the data, if other than the current user.
-It was complicated by managing transitive access to the data,
+Collaboration updating a contact's info would occur in the open, 
+visible to everyone who could see that contact.  Users who were
+allowed to edit the contact could negotiate over the correctness
+of the info, reverting to earlier versions in its history if necessary,
+and hopefully reaching a group concensus.  The owner of the contact
+could have the final say by revoking edit permissions.
+This model was complicated by managing transitive access to the data,
 such as friend-of-a-friend, potentially revoking access to the
-user who provided the data in the first place.
+user who provided the data in the first place.  It was also complicated
+by supporting only a single instance of each person in the system,
+requiring all to be discoverable by all users, allowing a new user
+to gain ownership of her own person, and resolving collisions between
+unrelated users (as described in the issues section above).
 
-In the Github model, the user can edit all the data she can see,
+In my new, Github model, the user can edit all the data she can see,
 because she gets her own copy of it.  Just like the real world,
 if the user has access to some data, then she can choose with whom
-to share that data, directly.
+to share that data, directly.  This model is centered on the user,
+making her data subjective and relative, which resolves several issues.
 
 When data is shared, each copy retains the ID of the original, along
 with its own ID.  This forms a set across transitive copies of the data,
@@ -475,29 +446,6 @@ For my current project, I am planning to make a single-page
 AJAX app, using AngularJS and REST features in Grails 2.3.
 
 
-Updated Schedule
-------------------
-
-* 2013 Oct - research publications and apps since 2009
-* 2013 Nov - design for below issues
-* 2013 Dec - update prototype to current Grails
-* 2013 Dec - authentication via Facebook, Google, etc
-* 2014 Jan - email/notifications
-* 2014 Jan - history/edit/add info
-* 2014 Feb - permissions/privacy
-* 2014 Mar - duplicates/unify/link
-* 2014 Mar - import/export/sync
-* 2014 Apr - user testing
-* 2014 May - revisions and retesting
-* 2014 Jun - write report
-
-
-
-contact info sharing web app
-============================
-ICS MS project status report 2014 January & February  
-J. David Beutel  
-2014-02-26
 
 
 User Testing
@@ -594,51 +542,6 @@ where I tried a small sample,
 but I need to go through AngularJS tutorials in detail.
 
 
-Updated Schedule
-------------------
-
-I am behind my tentative schedule, and need to update it.
-
-I have done most of the December tasks,
-updating the prototype to current Grails,
-and authentication via Facebook & Google.
-I have also made a little progress on some January and February tasks,
-sending a confirmation email for registration,
-and finding that the Spring Security Access Control List
-plugin may help me implement permissions.
-
-However, I did not get a lot done in February.
-I was busy updating my work project to the current version
-of Grails.  (This should help my MS project, too.)
-
-I would like to extend my schedule by two months,
-through August, and work on reimplementing the UI in AngularJS
-next.  Redoing the UI now will allow me to implement
-the additional features in the new UI, with less to redo later.
-
-* 2013 Oct - research publications and apps since 2009
-* 2013 Nov - design for below issues
-* 2013 Dec - user testing on old prototype
-* 2014 Jan - update prototype to current Grails
-* 2014 Feb - authentication via Facebook, Google, etc
-* 2014 Mar - redo UI with AngularJS
-* 2014 Mar - email/notifications
-* 2014 Apr - history/edit/add info
-* 2014 Apr - permissions/privacy
-* 2014 May - duplicates/unify/link
-* 2014 May - import/export/sync
-* 2014 Jun - user testing
-* 2014 Jul - revisions and retesting
-* 2014 Aug - write report
-
-
-
-contact info sharing web app
-============================
-ICS MS project status report 2014 March  
-J. David Beutel  
-2014-04-03
-
 
 Conversion to AngularJS
 -----------------------
@@ -731,29 +634,6 @@ Finally, I need to redo the contact list with expanding details in Angular.
 They are read-only in the prototype, so my March schedule did not include
 editing them.
 
-
-
-Schedule
---------
-
-I am behind my tentative schedule again.  I had hoped to finish the
-Angular redo in March, and do email/notifications.
-But, I am not going to revise my schedule yet.
-I will continue the Angular work for another two weeks,
-and then revise based on my progress then (before my trip to Japan).
-
-The items that my current schedule has for April
-are history/edit/add info and permissions/privacy.
-These are closely related to the contact list,
-so hopefully my Angular work will provide some insight.
-
-
-
-contact info sharing web app
-============================
-ICS MS project status report 2014 April - September  
-J. David Beutel  
-2014-09-23
 
 
 Settings Tab
@@ -1123,3 +1003,33 @@ to just the UI improvements that I could do.
 * 2014 Oct - write report (due Nov 7)
 * 2014 Nov - prepare presentation
 * 2014 Dec 4 - present to ICS 690
+
+
+References
+----------
+
+Abdul-Rahman, A., & Hailes, S. (2000).
+Supporting Trust in Virtual Communities.
+In Hawaii International Conference on System Sciences 33, pp.1769-1777, 2000.
+
+Baden, R., Bender, A., Spring, N., Bhattacharjee, B., & Starin, D. (2009).
+Persona: an online social network with user-defined privacy.
+SIGCOMM Comput. Commun. Rev., 39(4), 135-146. doi: 10.1145/1594977.1592585.
+
+Jøsang, A. (2001).
+A logic for uncertain probabilities.
+International Journal of Uncertainty, Fuzziness
+and Knowledge - Based Systems, 9(3):279-311, June 2001.
+
+Narayanan, A., Toubiana, V., Barocas, S., Nissenbaum, H., & Boneh, D. (2012).
+A Critical Look at Decentralized Personal Data Architectures
+(arXiv e-print No. 1202.4503).
+Retrieved from http://arxiv.org/abs/1202.4503
+
+Nissenbaum, H. (2004).
+Privacy as Contextual Integrity.
+Washington Law Review 79 (2004), 101- 39.
+
+Shand, B., Dimmock, N., & Bacon, J. (2003).
+Trust for Ubiquitous, Transparent Collaboration.
+First IEEE International Conference on Pervasive Computing and Communications.
