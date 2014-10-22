@@ -133,12 +133,12 @@ doesn't want two copies in his address book.  So, each user needs his
 own copy, receiving optional update advice that ripples through related
 copies.  This could allow for a distributed, peer-to-peer architecture,
 possibly utilizing attribute-based encryption,
-as discussed by (Baden et al, 2009),
+as discussed by (Baden et al., 2009),
 although my project will implement a centralized web app.  Each update
 advice can come with some level of trust or certainty, based on the relation
 it came from, and be applied automatically (with history to rollback if
 necessary), or after confirmation of the notification,
-similar to the system described by (Shand et al, 2003).
+similar to the system described by (Shand et al., 2003).
 (Abdul-Rahman & Hailes, 2000) and (Jøsang, 2001)
 provide a background for how that system handles subjective trust
 and uncertainty.
@@ -228,7 +228,7 @@ the assumption is that those are not for some other user.
 
 #### Android HTC ####
 
-The "People" (a.k.a. Phonebook) on a smart-phone running Android 4.0
+The "People" (aka Phone-book) on a smart-phone running Android 4.0
 (HTC Sense 3.6) can be integrated with Contacts on Google and other
 stacks, e.g., Facebook.  These contacts, which are sync'ed with separate
 sources, can be linked on the phone.  Regarding the contact information
@@ -329,7 +329,7 @@ content that this report does not, and on the other hand,
 this report needs to include more details about my work.
 So, after all, I did not use those papers as a model for this report.
 
-One use that I actually did make was of a position paper (Narayanan et al,
+One use that I actually did make was of a position paper (Narayanan et al.,
 2012) that supported my decision to not use a decentralized architecture
 for the app.  I was tempted by such an architecture, because it would
 mirror the data model, but the paper confirmed that it would just
@@ -344,52 +344,84 @@ Design
 
 I updated the design of my 2010 project to the distributed data model
 that I suggested in the unification section above.
+
+
+### Data Model ###
+
+
 My previous design was like Wikipedia, where users collaborate
 to keep the same instance of data up to date.  My new design is more like
 Github, when users fork their own copy of the data and share updates.
-Forking is more complicated, but it matches better with what users do
+This forking will add some new complexities, but it resolves several issues
+with my previous design, and it matches better with what users do
 in the real world with their own physical address books or smartphones.
 Although the data model is distributed, the architecture is still
 centralized, i.e., the web app runs on a single server, containing
 each user's copy of the data.
 
 
-### Data Model
+#### Old, Wikipedia Model ####
+
 
 My old, Wikipedia model was oriented around who can view or edit each
-instance of data.  In this model, the data was central and unique,
-intended to reflect the objective truth.
-The UI included a color key on expansion toggle
-buttons to indicate that zooming in will reveal editable fields.
-It also displayed the owner of the data, if other than the current user.
-Collaboration updating a contact's info would occur in the open, 
-visible to everyone who could see that contact.  Users who were
-allowed to edit the contact could negotiate over the correctness
-of the info, reverting to earlier versions in its history if necessary,
-and hopefully reaching a group concensus.  The owner of the contact
-could have the final say by revoking edit permissions.
-This model was complicated by managing transitive access to the data,
-such as friend-of-a-friend, potentially revoking access to the
-user who provided the data in the first place.  It was also complicated
-by supporting only a single instance of each person in the system,
-requiring all to be discoverable by all users, allowing a new user
-to gain ownership of her own person, and resolving collisions between
-unrelated users (as described in the issues section above).
+instance of data.  In that model, a person's current contact info
+appeared only once in the system, not in different copies for different
+users; the data was central, intended to approach the objective truth.
+The UI included a color key on the expansion toggle buttons, to indicate
+that zooming in will reveal editable fields.  It also displayed the
+owner of the data, if other than the current user.
+
+Users who were allowed to edit the contact could update its info,
+adding corrections or reverting to earlier versions in its history if
+necessary.  The users with permission to see the contact could watch this
+collaboration of updates, and hopefully reach a consensus.  The owner
+of the contact could have the final say by revoking edit permissions.
+
+That model was complicated by managing transitive access to the data,
+such as friend-of-a-friend, potentially revoking access to the user
+who provided the data in the first place.  It was also complicated by:
+supporting only a single instance of each person in the system, requiring
+them all to be discoverable by all users; needing to provide a way for
+a new user to gain ownership of her own person; and, resolving collisions
+between unrelated users (as described in the issues section above).
+
+
+#### New, Github Model ####
+
 
 In my new, Github model, the user can edit all the data she can see,
-because she gets her own copy of it.  Just like the real world,
+because she gets her own copy of it.  So, there is no need to indicate
+where to dig for editable fields.  Just like the real world,
 if the user has access to some data, then she can choose with whom
 to share that data, directly.  This model is centered on the user,
-making her data subjective and relative, which resolves several issues.
+making her data subjective and relative, resolving the issues
+listed above with the Wikipedia model.
 
 When data is shared, each copy retains the ID of the original, along
 with its own ID.  This forms a set across transitive copies of the data,
 allowing the app to group together updates for the same original ID.
 The user can share her updates with a subset, or whichever users she
 chooses.  Updates offered to a shared group display which members have
-accepted or rejected them.  If a user hijacks a shared contact, like a
-hijacked email thread, by filling in the wrong data, or data for another
-contact, then peer pressure comes into play.  The other users
+accepted or rejected them, serving as recommendations and providing
+hints to users about whether they should trust the advice,
+based on the user's knowledge of the relation of each member
+to the information being updated.  In addition to accuracy, hopefully
+this will provide enough contextual integrity (Nissenbaum, 2004)
+for responsible sharing of the data.
+
+I did not plan to have the app automatically decide
+which advice to trust, despite having found some research on that
+(mentioned in an earlier section about the unification issue).
+This is because the app would still need to let the user override
+any automatic decision, or make a manual decision when the app
+did not have the confidence to make an automatic one,
+so it would not simplify the UI.  Also, contact information
+should change rarely enough that the lack of this automatic
+feature should not be a burden.
+
+A user could hijack a shared contact, like a hijacked email thread,
+by filling in the wrong data, or data for a different contact.
+In that case, my app will rely on peer pressure.  The other users
 can reject such updates, or contact the transgressor out-of-band.
 
 Besides sets of copies, there may be duplicate data,
@@ -397,8 +429,8 @@ input by multiple users, or imported from multiple sources.
 Like contacts on an HTC smartphone, the app can suggest duplicates,
 and the user can link them by confirming.  The app updates the
 linked data with each other, so the user can choose to let
-missing data be filled in, or inconsistent data be unifed.
-Data that are linked are displayed together.  Duplicate data
+missing data be filled in, or inconsistent data be unified.
+Contacts that are linked are displayed in aggregate.  Duplicate data
 can provide different streams of updates from different sources,
 and share updates with different groups.
 
@@ -520,7 +552,7 @@ using [the same code repository](https://github.com/jdbeutel/ics699-bendy).
 Several app components, such as authentication, are still using older options
 for backwards compatibility.
 
-I started a new app as a sandbox for using new authentication plugins,
+I started a new app as a sandbox for using new authentication plug-ins,
 based on Spring Security 2,
 in [a new code repository](https://github.com/jdbeutel/ics699-ss2).
 I added email confirmation for registration,
@@ -897,16 +929,16 @@ and because it is a central feature of the application.
 
 I thought it would be easy, because I had lots of experience
 implementing search in Grails with GORM from a database.
-However, I used a search plugin instead of GORM,
+However, I used a search plug-in instead of GORM,
 because I wanted a full-text search with result highlighting.
 That turned out to be fundamentally different from a relational database,
 and I discovered that I needed to learn a lot about it.
 
 
-### Searchable Plugin
+### Searchable Plug-in
 
 Originally I used Grails' ["searchable"
-plugin](http://grails.org/plugin/searchable), based on
+plug-in](http://grails.org/plugin/searchable), based on
 [Lucene](http://lucene.apache.org/) and
 [Compass](http://www.compass-project.org/), because it had the best
 rating, with the most Grails users and documentation, and it seemed
@@ -933,11 +965,11 @@ entities to Lucene documents.
 ### Elasticsearch
 
 So, I went with [an Elasticsearch
-plugin](http://grails.org/plugin/elasticsearch) instead.  It provides
+plug-in](http://grails.org/plugin/elasticsearch) instead.  It provides
 a nice facade on Lucene, including an API with a REST interface for
 browsing and querying the index in JSON.  It has better
 [documentation](http://www.elasticsearch.org/guide/) and tools than
-Compass and the Searchable plugin.  I read [Elasticsearch: The
+Compass and the Searchable plug-in.  I read [Elasticsearch: The
 Definitive
 Guide](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/index.html)
 and
@@ -957,7 +989,7 @@ This was difficult to debug, because Elasticsearch saw the entities
 in the database, but just didn't see their relations, and the relations
 were flushed to the database after the bootstrap method finished running,
 so the problem was not visible afterwards.
-This resolution might solve the same issue on Compass and the searchable plugin,
+This resolution might solve the same issue on Compass and the searchable plug-in,
 but I will just stay on Elasticsearch.
 
 I also configured Elasticsearch to not analyze any of the searchable fields,
