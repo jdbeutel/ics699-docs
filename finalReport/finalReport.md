@@ -3,38 +3,39 @@ contact info sharing web app
 final report  
 ICS 699 project  
 J. David Beutel  
-2014-10-20
+2014-10-28
 
 Introduction
 ------------
 
-I tried to implement a web application for sharing contact information,
-to enable friends and family to collaborate in maintaining their address
-books.  For years, I have wanted such an app for my own use, and I did
-several projects building towards it.  The more preparatory work I did,
-the more daunting it became, until I doubted whether I could complete an
+I rarely use postal addresses, until I
+send out a bunch of holiday cards.  Every year the Post Office returns a few,
+because the addressee has moved during the year, so I need to
+contact friends or relatives to get the updated address.  Phone numbers
+and email addresses also change now and then.  For years,
+I have wanted a more convenient way to share
+this contact information between my friends and family.
+
+As my capstone project, I tried to implement a web application for this,
+to enable friends and family to collaborate in maintaining their
+address books.  In 2009 and 2010, I did several
+projects building towards this.  However, the more preparatory work I did,
+the more daunting it became, until I doubted whether I could do a full
 implementation in just 6 credit-hours.  Nevertheless, I finally decided
-that I had to try it anyway.
+that I had to try.
 
 The biggest challenge that I anticipated was how to
 manage the privacy of third-party information, in a way
 that is easy to use.  Unfortunately,
-I never got to that functionality, because I was dealing
+I never got to that functionality, because I had to deal
 with more fundamental issues first.
 I started with a partial UI prototype that I made for
 a project in Spring 2010 (ICS 664).
 ... etc, come back and summarize after adding the rest of the reports...
 
 
-Background
-----------
-
-I normally don't use postal addresses, until I
-send out a bunch of holiday cards.  Then the Post Office returns a few,
-because the addressee has moved during the year, so I sometimes need to
-contact friends or relatives to get the updated address.  Phone numbers
-and email addresses also change occasionally.  With this app, one person
-can automatically share an update with friends or family.
+Previous Work
+-------------
 
 I have done several class projects leading up to this one:
 
@@ -43,10 +44,6 @@ Social Networking Contact Book
 * Fall 2009 ICS 668:  Managing Privacy for Transitive Sharing on a
 Social Networking Site (literature review)
 * Spring 2010 ICS 664:  We'll Call You (partial UI prototype)
-
-
-Previous Work
--------------
 
 Below are samples of the interaction scheme
 from my project for Spring 2009 ICS 667:  Agile Usage-Centered Design of a
@@ -60,16 +57,38 @@ Spring 2010 ICS 664:  We'll Call You
 ![design](WCY-design.jpg)
 
 Below is a screen-shot from a partial UI prototype of the above project,
-implemented as a Grails web application.
-Due to time constraints, it does not actually implement editing or adding
+implemented as a Grails 1.2.2 web application in 2010.
+Due to time constraints, it did not actually implement editing or adding
 contact information, permissions, history, search, notifications, etc.
-I wanted to do all that in this project.
+For example, in the below screen-shot, the Save button, Search button,
+New Contact link, and Add select all did nothing.
+
 
 ![design](WCY-prototype.png)
 
 
-Issues
-------
+Proposal - 2013 Spring/Summer
+-----------------------------
+
+Since my 2010 project, I considered several issues that I had
+found in the design of my previous work, and ways to mitigate them,
+listed below.  Finally I wrote the proposal for this new project.
+I proposed to:
+* start with my 2010 project's partial UI prototype;
+* look for new, relevant research since my 2009 literature review;
+* design for the below issues;
+* update the prototype to current software frameworks;
+* implement authentication via Facebook and Google;
+* implement editing and adding information;
+* implement additional functionality (which I was not able to complete
+within this project's time-frame):  email/notifications, history,
+permissions/privacy, duplicates/unify/link, and import/export/sync;
+* perform user testing;
+* implement revisions and retest;
+* and, write this final report.
+
+
+## Issues ##
 
 ### privacy & trust ###
 
@@ -80,14 +99,15 @@ a second party is straightforward; several apps already support this,
 such as Google, Facebook, and Plaxo.  (See examples below.)
 However, these networks do not support the sharing of third-party
 information, so their users are encouraged to get their contacts
-to join the same network.  While that helps to spread the network,
+to join the same network.  While that is good for the network,
+getting its users to promote it virally,
 one cannot expect to get all of ones contacts
 to join and manage their own contact information.
 Some will choose to join other networks instead, or refrain entirely
 due to privacy concerns.
 
 This forces one to manage other people's contact information
-in ones own address book.  So, why not collaborate?
+in ones own address book.  Why not collaborate on that?
 The difficulty is that sharing a third party's contact information
 with second parties involves some wicked problems.
 
@@ -131,20 +151,21 @@ Now, suppose that Charlie, who Bob and I both know, starts using the app,
 and Bob and I both share my grandmother's address with him.  Charlie
 doesn't want two copies in his address book.  So, each user needs his
 own copy, receiving optional update advice that ripples through related
-copies.  This could allow for a distributed, peer-to-peer architecture,
-possibly utilizing attribute-based encryption,
-as discussed by (Baden et al., 2009),
-although my project will implement a centralized web app.  Each update
-advice can come with some level of trust or certainty, based on the relation
-it came from, and be applied automatically (with history to rollback if
-necessary), or after confirmation of the notification,
+copies.
+
+This could allow for a distributed, peer-to-peer architecture,
+possibly utilizing attribute-based encryption, as discussed by (Baden
+et al., 2009), although my project implements a centralized web app.
+Each update advice could come with some level of trust or certainty,
+based on the relation it came from, and be applied automatically
+(with history to rollback if necessary), or after manual approval,
 similar to the system described by (Shand et al., 2003).
-(Abdul-Rahman & Hailes, 2000) and (Jøsang, 2001)
-provide a background for how that system handles subjective trust
-and uncertainty.
+(Abdul-Rahman & Hailes, 2000) and (Jøsang, 2001) provide a background
+for how that system handles subjective trust and uncertainty,
+but I did not plan to try to implement such automated intelligence.
 
 My previous work designed permissions and history for the wiki model,
-but the above issue leads me to think that this distributed model
+but the above issue leaded me to think that this distributed model
 would be better (even in a centralized web app).
 
 
@@ -169,19 +190,17 @@ for a stronger identity.
 Users input their own contact information, and can share it with a higher
 level of trust than third parties can.  There is no absolute trust,
 however, since impersonation is easy: a user can always assign a contact
-an email address that he controls.  The app could at least warn about
+a fake email address that he controls.  The app could at least warn about
 suspicious identity, such as two users with the same name and location.
 
 
-Existing Examples
------------------
+## Existing Examples ##
 
-I have not yet found any existing system that supports what I would like
-to implement with this project.  However, several current apps come close,
-are well-implemented, and well-integrated.  None support collaborative
-maintenance of third-party contact information, though.  I will do more
-research to see if there are any designs or implementations that I can
-utilize or mash-up for this project.
+I have not found any existing system that supports what I had wanted
+to implement with this project.  However, several apps came close,
+are well-implemented, and well-integrated.  My proposal included the
+following overview of them, as of mid-2013.  None support collaborative
+maintenance of third-party contact information, though.
 
 
 ### Google ###
@@ -282,14 +301,13 @@ or even excluding individuals from chosen groups.
 
 However, Facebook does not have a way to input or share third-party
 contact information, although there could be Facebook apps that provide
-this kind of functionality.  I will need to do some research to see
-whether, once a user has shared his data with another Facebook user,
-that second party can choose to share it with a third party, such
-as a Facebook app.  Facebook at least allows this kind of sharing of
-other kinds of information, such as tagging second or third parties in
-photos and sharing them with other third parties.  On the other hand,
-Facebook has some safeguards for this, such as notifying second parties
-and allowing them to un-tag themselves or even un-friend the poster.
+this kind of functionality.  Facebook at least allows this kind of
+sharing of other kinds of information, such as tagging second or third
+parties in photos and sharing them with other third parties.  On the
+other hand, Facebook has some safeguards for this, such as notifying
+second parties and allowing them to un-tag themselves or even un-friend
+the poster.  Of course, over time, Facebook adjusts its privacy settings,
+UI, and functionality, so this is just a snap-shot.
 
 
 ### Plaxo ###
@@ -303,8 +321,8 @@ third-party information.
 ![Plaxo address book example](Plaxo - Address Book.png)
 
 
-Delay
------
+Delay - 2013 September
+----------------------
 
 A couple weeks into the 2013 Fall semester, I was hit by a truck
 and broke my thumb.  It required surgery and physical therapy.
@@ -313,14 +331,57 @@ insurance and liability took a lot of unplanned time.
 This delayed the start of my project.
 
 
-Research
---------
+Research - 2013 October
+-----------------------
 
-To update my literature review from 2009, I found [five
-publications](../newResearch) since then that referenced the
-same references, and looked interesting.  I read them and
+To get updated research since my literature review of 2009,
+I found [five later publications](../newResearch) that referenced
+the same references, and looked interesting.  I read them and
 took [notes](../newResearch/notes.md).  Unfortunately, they
-did not provide answers to the design issues of my current project.
+did not provide answers to the design issues of my current project,
+so I excluded my summaries of them from this report.
+Still, for the sake of completion, I listed them in the references:
+* (Cutillo et al., 2009)
+* (Mun et al., 2010)
+* (Narayanan et al., 2012)
+* (Shakimov et al., 2011)
+* (Waters, 2011)
+
+### GitHub ###
+
+To provide my advisor with convenient access to
+those five references, I added them to my GitHub repository
+of the documents of this project, along with the proposal,
+status reports, notes, and now this final report.
+When viewing this report on GitHub's web site,
+it has relative links that provide the easiest access
+to those papers.
+
+I do not have the right to redistribute those five papers,
+so I did not want to put them in a public repo on GitHub.
+(However, I believe that providing them to my advisor is
+fair use.)  Initially, I searched for other Git hosting
+web sites that offered free private repos.  I tried
+two:  BitBucket and GitLab.  Unfortunately, they did not
+work as well as GitHub, and could not handle relative links
+in MarkDown files, the format that I am using to document this project.
+
+Finally, I got a student account at GitHub,
+which allowed me to have free private repos.
+So, I made the documentation repo private,
+added the references to it, and gave my advisor access to it:
+https://github.com/jdbeutel/ics699-docs
+
+Just a month later, GitLab informed me that it added support
+for relative links, but I have not had time to go back and try
+it again.  BitBucket, on the other hand, is an Atlassian product,
+which has had an issue open on this for 18 months already:
+https://bitbucket.org/site/master/issue/6315
+It has 391 customer votes so far, but Atlassian has shown
+no intention to fix it.  It seems like no competition for GitHub.
+
+
+### Use ###
 
 The best use I could make of the new research, I thought,
 was as examples of what this final report might look like.
@@ -329,18 +390,18 @@ content that this report does not, and on the other hand,
 this report needs to include more details about my work.
 So, after all, I did not use those papers as a model for this report.
 
-One use that I actually did make was of a position paper (Narayanan et al.,
-2012) that supported my decision to not use a decentralized architecture
-for the app.  I was tempted by such an architecture, because it would
-mirror the data model, but the paper confirmed that it would just
-complicate the project for no real benefit.
+One use that I actually did make was of a position paper,
+(Narayanan et al., 2012), that supported my decision to not
+use a decentralized architecture for the app.  I was tempted by such
+an architecture, because it would mirror the data model, but the paper
+confirmed that it would just complicate the project for no real benefit.
 
 I could have continued researching, but I had to go on with the project.
 I doubt that I overlooked any important research.
 
 
-Design
-------
+Design - 2013 November
+----------------------
 
 I updated the design of my 2010 project to the distributed data model
 that I suggested in the unification section above.
@@ -369,7 +430,8 @@ appeared only once in the system, not in different copies for different
 users; the data was central, intended to approach the objective truth.
 The UI included a color key on the expansion toggle buttons, to indicate
 that zooming in will reveal editable fields.  It also displayed the
-owner of the data, if other than the current user.
+owner of the data, if other than the current user.  (Users could add
+their own private notes and data to this central data.)
 
 Users who were allowed to edit the contact could update its info,
 adding corrections or reverting to earlier versions in its history if
@@ -407,7 +469,7 @@ hints to users about whether they should trust the advice,
 based on the user's knowledge of the relation of each member
 to the information being updated.  In addition to accuracy, hopefully
 this will provide enough contextual integrity (Nissenbaum, 2004)
-for responsible sharing of the data.
+and accountability for each user to share the data responsibly.
 
 I did not plan to have the app automatically decide
 which advice to trust, despite having found some research on that
@@ -435,7 +497,7 @@ can provide different streams of updates from different sources,
 and share updates with different groups.
 
 
-### Privacy
+### Privacy ###
 
 The contacts in my previous model were discoverable, exposing
 name and city to the public, like on Facebook, so users could
@@ -451,40 +513,33 @@ If users make requests, they will need to be out-of-band,
 outside the app.
 
 
-### Editing UI
+### Editing UI ###
 
 Since the app will be used more to read than to write,
-I am going with a more conventional mode for editing.
+I changed the design to a more conventional mode for editing.
 The data will not be in input fields until the user presses
 the Edit button.  Then Edit becomes Save, a Cancel link is added,
-and the collapse buttons are disabled, preventing the user from
+and the collapse buttons will be disabled, preventing the user from
 hiding unsaved data.  Changed input fields and the Save button
-will still be highlighted in yellow.  If possible, warn the
+will still be highlighted in yellow.  If possible, it will warn the
 user about closing a tab or navigating off a page with unsaved data.
 
-After Cancel, a Redo button appears.  Likewise, after Save,
-an Undo button appears.  The undo period is limited to 10 minutes,
+After Cancel, a Redo button will appear.  Likewise, after Save,
+an Undo button will appear.  The undo period is limited to 10 minutes,
 after which other users may receive update notifications,
 and email may be sent.  After that timeout, the change can
 still be undone via history, although other users may have already
 accepted that change.
 
 
-Implementation
---------------
 
-I have just started updating my previous prototype to Grails 2.3.
-For my current project, I am planning to make a single-page
-AJAX app, using AngularJS and REST features in Grails 2.3.
+User Testing - 2013 December
+----------------------------
 
-
-
-
-User Testing
-------------
-
-I did some user testing of the old prototype
-while at my mother's on the mainland over the New Year's break.
+I did some user testing of my 2010 prototype,
+while at my mother's on the mainland.
+I upgraded the prototype from Grails 1.2.2 to Grails 1.3.9,
+and modified it to run in mainland timezones.
 
 ### Format
 
@@ -525,7 +580,8 @@ accounts and single sign-on (such as Google or Facebook).
 * One user got stuck in the registration,
 and I helped her complete it, but used the wrong name.
 She was then able to navigate to her profile and correct her own name.
-But, then she tried to navigate with the browser forwards and backwards buttons,
+But, then she tried to navigate with
+the browser forwards and backwards buttons,
 which failed to show the results of her editing and saving, confusing her.
 I am not sure how to avoid this issue.
 * Many users tried clicked in the middle of the contact lines
@@ -536,51 +592,103 @@ using Windows 8, with its flat design.)  To improve this,
 my new app will expand for clicking anywhere on the line.
 * The user in her 90s had very little computer experience.
 For example, she was unsure how to use the Shift key to type the @ symbol
-in her email address.  I moved the test to the browser on her own
+in her own email address.  I moved the test to the browser on her own
 computer, but she still could not explore the app on her own.
 I am not going to constrain the design of my new app for such users.
 
 
 
-Implementation
---------------
+Grails Upgrade - 2014 January
+-----------------------------
 
-For user testing, I upgraded my previous prototype to Grails 1.3.9
-and modified it to run in mainland timezones.
-For my new app, I continued updating the prototype to Grails 2.3,
+I updated the prototype to Grails 2.3,
 using [the same code repository](https://github.com/jdbeutel/ics699-bendy).
-Several app components, such as authentication, are still using older options
-for backwards compatibility.
+Several app components, such as the old authentication plug-in,
+are still using older options for backwards compatibility.
 
-I started a new app as a sandbox for using new authentication plug-ins,
+I planned to make a primarily single-page
+AJAX app, using AngularJS and REST features in Grails 2.3.
+I attended an AngularJS hackfest, where I tried a small sample,
+but I needed to go through AngularJS tutorials in detail.
+
+
+
+Authentication - 2014 February
+------------------------------
+
+I started a new app as a sandbox for testing new authentication plug-ins,
 based on Spring Security 2,
 in [a new code repository](https://github.com/jdbeutel/ics699-ss2).
-I added email confirmation for registration,
+To that sandbox I added email confirmation for registration,
 and registration and authentication by Google or Facebook account.
-I still need to migrate this to my original app,
-replacing its old authentication component.
 
-I made both those Github repos private, like this ics699-docs repo,
+XXX add screenshots here
+
+The Grails 2.3.7 plug-ins that I chose for implementing this were:
+* spring-security-core 2.0-RC2
+* jquery-ui 1.10.3
+* mail 1.0.1
+* famfamfam 1.0.1
+* spring-security-ui 1.0-RC1
+* spring-security-oauth 2.0.2
+* spring-security-oauth-google 0.2
+* spring-security-oauth-facebook 0.1
+
+The Google and Facebook authentication and email seems to
+function well in the sandbox app, even without a real UI.
+But, I did not migrate this to my main app,
+because I planned to update the main app's UI.
+The old and new UI had different implementations,
+so migrating the new authentication to the old UI
+would have been a waste of time.
+Unfortunately, I ran out of time while implementing the new UI,
+so I never did add the new authentication to my main app
+for this project.
+
+
+### External Config ###
+
+I made both those Github repos private, like the ics699-docs repo,
 to avoid worrying about leaking sensitive information during
 project development.  However, I also externalized the
 sensitive information, such as passwords and secret keys for
-sending email and authenticating with Google and Facebook, to avoid committing
-it to the repo, so I can eventually make the code repos public again.
+sending email and authenticating with Google and Facebook.
+I did that using a configuration like the following,
+to avoid committing the sensitive stuff to the repo,
+so I can eventually make the code repos public again.
 
-I am planning to make a primarily single-page
-AJAX app, using AngularJS and REST features in Grails 2.3.
-I attended an AngularJS hackfest on Feb 13,
-where I tried a small sample,
-but I need to go through AngularJS tutorials in detail.
+  // in Config.groovy, configuring the external config file
+  grails.config.locations = ["file:${userHome}/grails-conf/${appName}-config.groovy"]
+
+  // in the external config file, with secrets masked for this report
+  grails {
+    mail {
+      host = "smtp.example.com"
+      username = "johndoe"
+      password = "xxxxxxxx"
+    }
+  }
+  
+  oauth {
+    providers {
+      google {
+        key = '999999999999-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+        secret = 'XXX-xxxxxxxxxxxxxxxxxxxx'
+      }
+      facebook {
+        key = '9999999999999999'
+	secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
+    }
+  }
 
 
 
-Conversion to AngularJS
------------------------
+Conversion to AngularJS - 2014 March
+------------------------------------
 
-I spent a lot of time in March learning AngularJS and converting to it.
-I have not finished yet, but I will continue, because I still think
-that my project will be much better with Angular.
+I spent a lot of time in March learning AngularJS
+and starting to convert the app to it.
+
 
 ### Replacing Prototype
 
@@ -597,10 +705,11 @@ It still reloaded the whole page to display input validation error
 messages, like a traditional web app, not the way that an Angular
 web app is supposed to work.
 
+
 ### AJAX, JSON, & REST
 
-Next I converted that page to the Angular style, using AJAX, and
-on the server side, converted its Grails controller to REST and
+Next I started converting the Settings page to the Angular style, using AJAX,
+and on the server side, converted its Grails controller to REST and
 JSON.  The server sends the static page, and the Angular controller
 gets the data to fill in and initially display.  The save button
 posts another AJAX request, without reloading the page.  A successful
@@ -608,12 +717,11 @@ response resets the modification highlighting and updates the model's
 version numbers for optimistic locking, while an error response
 just displays the error messages from the server.
 
-An optimistic locking failure is a special case, displaying the
-newer data from the server and an error message from the client.
-I am thinking about eliminating this optimistic locking on the user
-level, allowing the last post to win, because users will be editing
-only their own copies of the data, but for this conversion I left
-it in.
+An optimistic locking failure is a special case, displaying the newer data
+from the server and an error message from the client.  At this point,
+I started to consider eliminating this optimistic locking on the user
+level, allowing the last post to win, because users will be editing only
+their own copies of the data.
 
 ### Angular Form Validation
 
@@ -1048,10 +1156,20 @@ Baden, R., Bender, A., Spring, N., Bhattacharjee, B., & Starin, D. (2009).
 Persona: an online social network with user-defined privacy.
 SIGCOMM Comput. Commun. Rev., 39(4), 135-146. doi: 10.1145/1594977.1592585.
 
+Cutillo, L. A., Molva, R., & Strufe, T. (2009).
+Safebook: A privacy-preserving online social network
+leveraging on real-life trust.
+IEEE Communications Magazine, 47(12), 94–101. doi:10.1109/MCOM.2009.5350374
+
 Jøsang, A. (2001).
 A logic for uncertain probabilities.
 International Journal of Uncertainty, Fuzziness
 and Knowledge - Based Systems, 9(3):279-311, June 2001.
+
+Mun, M., Hao, S., Mishra, N., Shilton, K., Burke, J., Estrin, D., … Govindan, R. (2010).
+Personal data vaults: a locus of control for personal data streams.
+In Proceedings of the 6th International Conference (pp. 17:1–17:12).
+New York, NY, USA: ACM. doi:10.1145/1921168.1921191
 
 Narayanan, A., Toubiana, V., Barocas, S., Nissenbaum, H., & Boneh, D. (2012).
 A Critical Look at Decentralized Personal Data Architectures
@@ -1062,6 +1180,20 @@ Nissenbaum, H. (2004).
 Privacy as Contextual Integrity.
 Washington Law Review 79 (2004), 101- 39.
 
+Shakimov, A., Lim, H., Caceres, R., Cox, L. P., Li, K., Liu, D., & Varshavsky, A. (2011).
+Vis-a-Vis: Privacy-preserving online social networking
+via Virtual Individual Servers.
+In 2011 Third International Conference on Communication Systems
+and Networks (COMSNETS) (pp. 1–10). doi:10.1109/COMSNETS.2011.5716497
+
 Shand, B., Dimmock, N., & Bacon, J. (2003).
 Trust for Ubiquitous, Transparent Collaboration.
 First IEEE International Conference on Pervasive Computing and Communications.
+
+Waters, B. (2011).
+Ciphertext-Policy Attribute-Based Encryption:
+An Expressive, Efficient, and Provably Secure Realization.
+In D. Catalano, N. Fazio, R. Gennaro, & A. Nicolosi (Eds.),
+Public Key Cryptography – PKC 2011 (pp. 53–70).
+Springer Berlin Heidelberg.
+Retrieved from http://link.springer.com/chapter/10.1007/978-3-642-19379-8_4
