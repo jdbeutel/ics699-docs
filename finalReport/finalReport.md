@@ -657,29 +657,29 @@ I did that using a configuration like the following,
 to avoid committing the sensitive stuff to the repo,
 so I can eventually make the code repos public again.
 
-  // in Config.groovy, configuring the external config file
-  grails.config.locations = ["file:${userHome}/grails-conf/${appName}-config.groovy"]
+    // in Config.groovy, configuring the external config file
+    grails.config.locations = ["file:${userHome}/grails-conf/${appName}-config.groovy"]
 
-  // in the external config file, with secrets masked for this report
-  grails {
-    mail {
-      host = "smtp.example.com"
-      username = "johndoe"
-      password = "xxxxxxxx"
-    }
-  }
-  
-  oauth {
-    providers {
-      google {
-        key = '999999999999-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
-        secret = 'XXX-xxxxxxxxxxxxxxxxxxxx'
+    // in the external config file, with secrets masked for this report
+    grails {
+      mail {
+        host = "smtp.example.com"
+        username = "johndoe"
+        password = "xxxxxxxx"
       }
-      facebook {
-        key = '9999999999999999'
-	secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
     }
-  }
+    
+    oauth {
+      providers {
+        google {
+          key = '999999999999-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com'
+          secret = 'XXX-xxxxxxxxxxxxxxxxxxxx'
+        }
+        facebook {
+          key = '9999999999999999'
+          secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
+      }
+    }
 
 
 
