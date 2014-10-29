@@ -700,13 +700,14 @@ Unfortunately, I ran out of time while implementing the new UI,
 so I never did add the new authentication to my main app
 for this project.
 
-### Authentication Demonstration ###
+### Demonstration ###
 
 The screen shots below demonstrate my authentication
 with Google and Facebook in the sandbox app.
 I took these while writing this final report,
 eight months after I implemented the sandbox.
-In that time, the APIs at Google and Facebook seem to have progressed,
+The APIs at Google and Facebook seem to have progressed
+in those eight months,
 so my sandbox has gotten a little out of date.  There are more recent
 versions of some of the plug-ins available, so I could try updating them,
 but there is no real need for that yet, because they still work
@@ -737,36 +738,39 @@ but my intention, of course, is to eventually use it with my Bendy app.)
 
 ![authentication demo google permission](ss2 - google permission.png)
 
-After the user approves the Bendy app's authentication of his
+After the user accepts the Bendy app's authentication of his
 Google account, he is redirected to the app.  Nobody has registered
 with that Google identity, so the user is offered the opportunity
-to do so by creating an account in the app.  (If someone with
-that Google identity  had already created an account in the app,
-then he would be logged in at this point, skipping to the next
+to do so by creating an account in the app.  The app has received
+the user's gmail address directly from Google.  (If someone with
+that Google identity had already created an account in the app,
+then he would have been logged in at this point, skipping to the next
 screen shot.)
 
 ![authentication demo google account creation](ss2 - google acct create.png)
 
 Once the user has created an account in the app using his
 Google identity, he is logged in to it, and proceeds with
-using the app, accessing his resources.  The sandbox app has 
+using the app, accessing his resources in it.  The sandbox app has 
 no resources, actually, so for this demo, I navigated back to
-the index, which confirms that the user is logged in with google.
+the index, which just confirms that the user is logged in with Google.
 
 ![authentication demo google logged in](ss2 - google logged in.png)
 
-On the other hand, back at the sign in page, if the user had
+On the other hand, back at the app's sign in page, if the user had
 followed the link to Facebook, having already logged in to
 his Facebook account in that browser, Facebook finds that he
 has not given the Bendy app permission to authenticate him via
 his Facebook account.  So, he gets the following dialog from Facebook,
 but only the first time.  (To do this authentication, I registered
-an app with Facebook namde Bendy, just like with Google, but
-separate apps.)
+an app with Facebook named Bendy, just like with Google, but
+separate apps.)  A warning is displayed because the API is out of date,
+as mentioned earlier, but it would normally be updated to
+stay in sync.
 
 ![authentication demo facebook permission](ss2 - facebook permission.png)
 
-Just like with Google, after the user approves the Bendy app's
+Just like with Google, after the user okay's the Bendy app's
 authentication of his Facebook account, he is redirected to the app.
 Nobody has registered with that Facebook identity, so the user is
 offered the opportunity to do so.
