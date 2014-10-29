@@ -679,8 +679,6 @@ authentication plug-ins, based on Spring Security 2, in
 To that sandbox I added email confirmation for registration,
 and registration and authentication by Google or Facebook account.
 
-XXX add screenshots here
-
 The Grails 2.3.7 plug-ins that I chose for implementing this were:
 * spring-security-core 2.0-RC2
 * jquery-ui 1.10.3
@@ -701,6 +699,84 @@ would have been a waste of time.
 Unfortunately, I ran out of time while implementing the new UI,
 so I never did add the new authentication to my main app
 for this project.
+
+### Authentication Demonstration ###
+
+The screen shots below demonstrate my authentication
+with Google and Facebook in the sandbox app.
+I took these while writing this final report,
+eight months after I implemented the sandbox.
+In that time, the APIs at Google and Facebook seem to have progressed,
+so my sandbox has gotten a little out of date.  There are more recent
+versions of some of the plug-ins available, so I could try updating them,
+but there is no real need for that yet, because they still work
+well enough to demonstrate this functionality.
+
+I modified the Grails default index to show the user's
+logged in status with Google and Facebook.  Initially
+the user is not logged in at all.
+
+![authentication demo not logged in](ss2 - initial.png)
+
+When the user navigates to a protected resource (in this case,
+the FooController), it redirects to the app's sign in page,
+which has links to log in or register with Google or Facebook,
+along with the typical option to log in or register with
+an email and password for the app itself.
+
+![authentication demo app sign in](ss2 - app sign in.png)
+
+When the user clicks the link for Google,
+having already logged in to his Google account in that browser,
+Google finds that he has not given the Bendy app permission
+to authenticate him via his Google account.  So, he gets the
+following dialog from Google, but only the first time.
+(To do this authentication, I registered an app with Google
+named Bendy.  I am actually using it with my sandbox app,
+but my intention, of course, is to eventually use it with my Bendy app.)
+
+![authentication demo google permission](ss2 - google permission.png)
+
+After the user approves the Bendy app's authentication of his
+Google account, he is redirected to the app.  Nobody has registered
+with that Google identity, so the user is offered the opportunity
+to do so by creating an account in the app.  (If someone with
+that Google identity  had already created an account in the app,
+then he would be logged in at this point, skipping to the next
+screen shot.)
+
+![authentication demo google account creation](ss2 - google acct create.png)
+
+Once the user has created an account in the app using his
+Google identity, he is logged in to it, and proceeds with
+using the app, accessing his resources.  The sandbox app has 
+no resources, actually, so for this demo, I navigated back to
+the index, which confirms that the user is logged in with google.
+
+![authentication demo google logged in](ss2 - google logged in.png)
+
+On the other hand, back at the sign in page, if the user had
+followed the link to Facebook, having already logged in to
+his Facebook account in that browser, Facebook finds that he
+has not given the Bendy app permission to authenticate him via
+his Facebook account.  So, he gets the following dialog from Facebook,
+but only the first time.  (To do this authentication, I registered
+an app with Facebook namde Bendy, just like with Google, but
+separate apps.)
+
+![authentication demo facebook permission](ss2 - facebook permission.png)
+
+Just like with Google, after the user approves the Bendy app's
+authentication of his Facebook account, he is redirected to the app.
+Nobody has registered with that Facebook identity, so the user is
+offered the opportunity to do so.
+
+![authentication demo facebook acct create](ss2 - facebook acct create.png)
+
+Finally, just like with Google, we can see that the app
+recognizes the user as having authenticated with Facebook.
+
+![authentication demo facebook logged in](ss2 - facebook logged in.png)
 
 
 ### External Config ###
@@ -1242,8 +1318,8 @@ Save button.  Eventually I fixed the bug.  For that matter, there
 were many bugs, but I tried to hold off committing until I could fix them,
 when I found the bugs in time.
 
-Below is an example of drilling down into a contact,
-but not editing.
+Below is an example of drilling down into a contact, but not editing it,
+after a search for "cool" limits the results to just three contacts.
 
 ![example of contact view](Bendy - Contacts - view.png)
 
