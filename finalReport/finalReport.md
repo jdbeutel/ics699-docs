@@ -1332,6 +1332,12 @@ own laptop, in my own email client, and explained that they
 should imagine that my email had arrived in their own in-box,
 and then click the link in it.
 
+The invitation effectively verifies that the new user has access to
+the email to which it was sent.  Different users are not allowed to
+have the same email address, so if an address has already accepted
+an invitation, then the user must login with the already-registered
+password instead.
+
 
 ### Registration ###
 
@@ -1347,13 +1353,13 @@ found in the first round of user testing:
 * needing to upload a profile image (optional now, and possible only after registration is completed),
 * confirming the chosen password (easier with the passwords displayed, the interactive validation, and nothing but the passwords on the form).
 
-![example of registration](Bendy - Registration.png)
+Compare the new registration page, below, to the old one of the
+prototype, after.  Several fields on the old one are invalid, but
+the user gets no warning until the form is submitted to the server.
 
-The invitation effectively verifies that the new user has access to
-the email to which it was sent.  Different users are not allowed to
-have the same email address, so if an address has already accepted
-an invitation, then the user must login with the already-registered
-password instead.
+![example of new registration](Bendy - Registration.png)
+
+![example of old registration](WCY-register.png)
 
 
 ### Sign In/Out ###
