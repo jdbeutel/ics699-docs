@@ -24,14 +24,25 @@ the more daunting it became, until I doubted whether I could do a full
 implementation in just 6 credit-hours.  Nevertheless, I finally decided
 that I had to try.
 
-The biggest challenge that I anticipated was how to
-manage the privacy of third-party information, in a way
-that is easy to use.  Unfortunately,
-I never got to that functionality, because I had to deal
-with more fundamental issues first.
-I started with a partial UI prototype that I made for
-a project in Spring 2010 (ICS 664).
-... etc, come back and summarize after adding the rest of the reports...
+The biggest challenge that I anticipated was how to manage the privacy of
+third-party information, in a way that is easy to use.  Unfortunately,
+I never got to that functionality, because I had to deal with more
+fundamental issues first.  I started with a partial UI prototype that
+I made for a project in Spring 2010 (ICS 664).  I updated its design to
+address several issues, and did some user testing on the old prototype.
+My primary goal was to create a modern, "rich" web app, with the best
+UI possible, using HTML5/AJAX/JSON/REST/Bootstrap/AngularJS/Grails.
+Learning about AngularJS, Elasticsearch, and cloud hosting took
+longer than I expected.  I made big improvements to the prototype's UI
+with my new architecture, and implemented some new functionality.
+However, I ran out of time, and could not implement a significant
+amount of what I wanted.
+
+Nevertheless, a second user test to evaluate my UI improvements and find
+more issues demonstrates that I have learned and accomplished a lot in
+this project, and laid a solid foundation for continuing development of
+my contact info sharing web app.
+
 
 
 Previous Work
@@ -1394,6 +1405,8 @@ name first.  Some suggested that a newly added, blank contact
 start out expanded with the name in editing mode.
 * Some users saw the connection rows as starting a new contact,
 because they look too similar, and are not indented enough.
+* For a contact with lots of info, fully expanded, it can't all fit on
+a single page.
 * Some users wondered what information would be visible to other users.
 * One user wondered, "If I add a contact, do I invite that person?"
 * One overlooked the success message from a password change,
@@ -1425,6 +1438,7 @@ that I am considering:
 
 * Have one Edit button for the whole contact, including every level.
 * Put an Add button in each property type section, instead of a drop-down button above Edit.  This will take more vertical space, especially for empty property types, but only while editing (now that we have editing mode), and this way will have a better chance of remaining within the locus of attention.  (Perhaps adjacent empty sections could be coalesced?)
+* Change styles to less space between lines when not in editing mode, so more of a contact's details can fit on a single page.
 * Put a delete button by every field and entity in the contacts.
 * Indent the connections more, and emphasize the nesting style.
 * Add a hover highlight to improve the delineation and gestalt of the contact
