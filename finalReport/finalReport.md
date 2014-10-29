@@ -1568,7 +1568,7 @@ that I am considering:
 * Have one Edit button for the whole contact, including every level.
 * Put an Add button in each property type section, instead of a drop-down button above Edit.  This will take more vertical space, especially for empty property types, but only while editing (now that we have editing mode), and this way will have a better chance of remaining within the locus of attention.  (Perhaps adjacent empty sections could be coalesced?)
 * Change styles to less space between lines when not in editing mode, so more of a contact's details can fit on a single page.
-* Put a delete button by every field and entity in the contacts.
+* Put a delete button by every field, address, connection, and contact.
 * Indent the connections more, and emphasize the nesting style.
 * Add a hover highlight to improve the delineation and gestalt of the contact
 (like in the old prototype).
@@ -1607,7 +1607,6 @@ that have not been implemented yet.  For example:
   * drag-and-drop border does not hug the image or animate to suggest drop-ability
   * making the Edit/Cancel button revert to original photo after uploading a new one
 * displaying more types of properties
-* deleting addresses, connections, or contacts
 * highlighting and automatically expanding matching search results
 * email/notifications
 * history
