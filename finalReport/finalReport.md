@@ -985,9 +985,8 @@ to make it more direct and clear.  It is like a dialog now, within the tab,
 but non-blocking, so both sets of fields can be updated independently.
 The Change Password button still toggles to 
 Cancel Password Change, instead of adding a typical Cancel button.
+This can be seen in examples above.
 
-
-XXX add example and comparison screenshots here
 
 
 Hosting - 2014 May & June
@@ -1308,6 +1307,7 @@ as in her Contacts tab.  That Person gets her own tab because she is
 important to the user, but also appears on the Contacts tab to allow
 for reference and comparison with other contacts.
 
+![example of my profile](Bendy - Profile - expanded home.png)
 
 ### Invitation ###
 
@@ -1346,6 +1346,8 @@ found in the first round of user testing:
 * trying to login without registering first (impossible now that the link goes straight to the registration page),
 * needing to upload a profile image (optional now, and possible only after registration is completed),
 * confirming the chosen password (easier with the passwords displayed, the interactive validation, and nothing but the passwords on the form).
+
+![example of registration](Bendy - Registration.png)
 
 The invitation effectively verifies that the new user has access to
 the email to which it was sent.  Different users are not allowed to
