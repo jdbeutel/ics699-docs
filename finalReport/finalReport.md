@@ -878,6 +878,9 @@ when compared with the old prototype.  The code is based on the
 [HTML5 constraint validation API](http://www.whatwg.org/specs/web-apps/current-work/#constraints),
 so follows the standards as much as practical.
 
+See the example screen shots below.  The important distinction
+with this interactive validation is that it occurs as soon as the
+focus leaves the input control, or after five seconds.
 
 ![interactive validation example for bad current password](Bendy - Settings - bad current passwd.png)
 
@@ -1345,11 +1348,11 @@ I restyled the Sign In and Sign Out pages in Bootstrap,
 with the interactive validation requiring an email address
 and password.
 
-![sign in example with placeholders](Bendy - sign in placeholder.png)
+![sign in example with placeholders](Bendy - wide sign in placeholder.png)
 
-![sign in example with bad email](Bendy - sign in non-email.png)
+![sign in example with bad email](Bendy - wide sign in non-email.png)
 
-![sign in example with two bad fields](Bendy - sign in two bad.png)
+![sign in example with two bad fields](Bendy - wide sign in two bad.png)
 
 ![signed out example](Bendy - signed out.png)
 
