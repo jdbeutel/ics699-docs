@@ -536,12 +536,16 @@ accepted that change.
 User Testing - 2013 December
 ----------------------------
 
-I did some user testing of my 2010 prototype,
-while at my mother's on the mainland.
-I upgraded the prototype from Grails 1.2.2 to Grails 1.3.9,
-and modified it to run in mainland timezones.
+I did some limited user testing of my 2010 prototype,
+while visiting my mother on the mainland.
+I had to upgrade the prototype from Grails 1.2.2 to Grails 1.3.9,
+and modify it to run in mainland timezones.  The upgrade was
+required because the Grails 1.2.2 build dependency system was
+three years out of date and no longer compatible with its
+online support resources.
 
-### Format
+
+### Format ###
 
 * 4 users, from my immediate family, 1 male, 3 female, ages 50s, 60s, & 90s.
 * I worked with each individually, for about an hour,
@@ -553,7 +557,7 @@ with a link to the page that I showed her in the browser of my Mac.
 * I asked the users to explore the app, thinking out loud,
 while I took notes.
 
-### Results
+### Results ###
 
 * Most users tried to login before registering.  The login requests
 an email address as an identifier, and for the password some tried
@@ -601,24 +605,66 @@ I am not going to constrain the design of my new app for such users.
 Grails Upgrade - 2014 January
 -----------------------------
 
-I updated the prototype to Grails 2.3,
-using [the same code repository](https://github.com/jdbeutel/ics699-bendy).
-Several app components, such as the old authentication plug-in,
+I started coding the new app for this project with the
+code and history of my old prototype app from 2010, in a
+[new code repository](https://github.com/jdbeutel/ics699-bendy).
+The first thing I did was to upgrade the prototype app to Grails 2.3.
+This included converting a JUnit integration test to a
+Spock integration specification, and upgrading the obsolete
+navigation plug-in to the current platform-core plug-in.
+However, several app components, such as the old authentication plug-in,
 are still using older options for backwards compatibility.
 
-I planned to make a primarily single-page
-AJAX app, using AngularJS and REST features in Grails 2.3.
-I attended an AngularJS hackfest, where I tried a small sample,
-but I needed to go through AngularJS tutorials in detail.
+The older versions of Grails defaulted to using the Prototype
+JavaScript framework, just like Rails (the inspiration for Grails).
+My prototype app used the same,
+but that framework could be considered obsolete now,
+and I did not want to develop another project with it.
+The current versions of Grails default to using the JQuery
+JavaScript library, which has dominated in recent years, with a
+[95% market share](http://w3techs.com/technologies/overview/javascript_library/all)
+as of October, 2014, compared to Prototype's 4%.
+I have several years of experience with JQuery now,
+and could have easily converted the old prototype JavaScript
+to implement the same UI with JQuery, but the user testing confirmed
+that that old UI needed many improvements.
 
+I wanted to make a modern, "rich" web app,
+with the best possible UI, so I planned
+to develop a primarily single-page, HTML5, AJAX app,
+using the REST features of Grails 2.3 on the server side.
+Unfortunately, JQuery by itself does not have good support
+for binding AJAX/REST to the DOM.  Additional, complimentary libraries,
+such as [Backbone](http://backbonejs.org/),
+[Knockout](http://knockoutjs.com/index.html),
+[Agility](http://agilityjs.com/), or
+[AngularJS](https://angularjs.org/), provide such support.
+Of those first three, I thought that Agility looked like the best to
+work with, so I gained some experience with it at work.
+Agility performed well as a light-weight binding framework,
+but its last update was in 2012, it has not garnered any significant
+mind share or market share, and it seems unsupported now.
+
+On the other hand, lately I had heard a lot of buzz about a new
+framework, AngularJS.  It was backed by Google, and promoted by
+many industry articles and blog posts.  It looked more comprehensive
+than Agility, but less heavy-weight than Backbone or Knockout.
+I attended an Angular hackfest hosted by George Lee,
+who had recently earned an ICS master's degree from UH,
+and been using Angular at work.  I tried a small sample
+at the hackfest, and decided to embark on learning this new
+JavaScript framework and trying to use it for this project.
+My first step was to go through the Angular tutorials in detail.
+Since both Agility and Angular were based on JQuery,
+I had hoped that it would not take me very long to learn Angular.
 
 
 Authentication - 2014 February
 ------------------------------
 
-I started a new app as a sandbox for testing new authentication plug-ins,
-based on Spring Security 2,
-in [a new code repository](https://github.com/jdbeutel/ics699-ss2).
+I started another new app as a sandbox for testing new
+authentication plug-ins, based on Spring Security 2, in
+[another new code repository](https://github.com/jdbeutel/ics699-ss2).
 To that sandbox I added email confirmation for registration,
 and registration and authentication by Google or Facebook account.
 
@@ -635,9 +681,9 @@ The Grails 2.3.7 plug-ins that I chose for implementing this were:
 * spring-security-oauth-facebook 0.1
 
 The Google and Facebook authentication and email seems to
-function well in the sandbox app, even without a real UI.
+function well in the sandbox app, although it lacks a UI.
 But, I did not migrate this to my main app,
-because I planned to update the main app's UI.
+because I planned to update the main app's UI to Angular et al.
 The old and new UI had different implementations,
 so migrating the new authentication to the old UI
 would have been a waste of time.
@@ -648,7 +694,7 @@ for this project.
 
 ### External Config ###
 
-I made both those Github repos private, like the ics699-docs repo,
+I made both new Github repos private, like the ics699-docs repo,
 to avoid worrying about leaking sensitive information during
 project development.  However, I also externalized the
 sensitive information, such as passwords and secret keys for
@@ -656,6 +702,7 @@ sending email and authenticating with Google and Facebook.
 I did that using a configuration like the following,
 to avoid committing the sensitive stuff to the repo,
 so I can eventually make the code repos public again.
+I include the example here, because it is not in the repo.
 
     // in Config.groovy, configuring the external config file
     grails.config.locations = ["file:${userHome}/grails-conf/${appName}-config.groovy"]
@@ -687,12 +734,51 @@ Conversion to AngularJS - 2014 March
 ------------------------------------
 
 I spent a lot of time in March learning AngularJS
-and starting to convert the app to it.
+and starting to convert the main app to it.
+The learning curve was steeper than I anticipated,
+but I still thought it would be worth it, so I stuck with it.
 
 
-### Replacing Prototype
+### Bootstrap Style ###
 
-I completed the Angular tutorial and converted my project's old
+The prototype used the old Grails default CSS styles and classes,
+because I was not very concerned with how it looked at that point.
+However, on the new app, I added the 
+[twitter-bootstrap plug-in](http://grails.org/plugin/twitter-bootstrap)
+version 3.0.3, along with
+[AngularUI Bootstrap](http://angular-ui.github.io/bootstrap/)
+version 0.10.0,
+in order to use a number of rich UI controls that work with Angular:
+* Alert
+* Buttons
+* Collapse
+* Datepicker
+* Dropdown
+* Progressbar
+
+Throughout this project, I also used Bootstrap 3's
+default CSS styles, in particular for:
+* responsive design grid layout,
+* navigation bar, with change to a (non-Angular) drop-down,
+* tables, 
+* forms,
+* alerts,
+* panels,
+* buttons,
+* and glyphicons.
+
+I plan to adjust the style later, to make it look better,
+but I think that even the Bootstrap defaults are a big improvement
+over the default Grails style.  I designed the app primarily
+for the desktop, because the extra screen real estate is useful
+for the simultaneous viewing and comparing of contacts,
+but I think that Bootstrap's support of responsive design
+improves the app's usability on mobile devices too.
+
+
+### Replacing Prototype ###
+
+I completed the Angular tutorial, and converted my project's old
 JavaScript (based on the Prototype library) to Angular, starting
 with the Settings page.  However, this update of the existing
 JavaScript was superficial, because it had only the following
@@ -706,7 +792,7 @@ messages, like a traditional web app, not the way that an Angular
 web app is supposed to work.
 
 
-### AJAX, JSON, & REST
+### AJAX, JSON, & REST ###
 
 Next I started converting the Settings page to the Angular style, using AJAX,
 and on the server side, converted its Grails controller to REST and
@@ -717,26 +803,28 @@ response resets the modification highlighting and updates the model's
 version numbers for optimistic locking, while an error response
 just displays the error messages from the server.
 
-An optimistic locking failure is a special case, displaying the newer data
-from the server and an error message from the client.  At this point,
+I handled an optimistic locking failure as a special case,
+displaying the newer data from the server and an error message
+from the client, similar to the pre-AJAX UI.  However, at that point,
 I started to consider eliminating this optimistic locking on the user
 level, allowing the last post to win, because users will be editing only
 their own copies of the data.
 
-### Angular Form Validation
+
+### Angular Form Validation ###
 
 I also learned about the native Angular support for form modification
-and validation, using that instead of my initial conversion.
-However, I found that the modification support was not quite what I need, because 
-after an input field is modified once, Angular still considers
-it to be modified after it is changed back to its original value.
-Modifications in my project are more significant, because they
-generate notifications, so I don't want any false indicators.
-I implemented another Angular directive to handle modifications
-properly within the native Angular form support.  It was harder
-to do, because it was tightly integrated with the Angular framework.
+and validation, using that instead of my initial conversion.  However,
+I found that the modification support was not quite what I need, because
+after an input field is modified once, Angular still considers it to be
+modified after it is changed back to its original value.  Modifications in
+my project are more significant, because they generate notifications,
+so I don't want any false indicators.  I implemented another Angular
+directive to handle modifications properly within the native Angular
+form support.  It was harder to do, because it was tightly integrated
+with the Angular framework.
 
-For form validation, I planned to use the new support in HTML5.
+For form validation, I had planned to use the new support in HTML5.
 [User testing shows](http://alistapart.com/article/inline-validation-in-web-forms)
 that this kind of immediate feedback is a better UI than the
 traditional page reload.  The server still needs to do all the same
@@ -749,60 +837,44 @@ I found some problems with HTML5 forms:
 * some of my validation, such as the matching password confirmation,
 cannot be done with HTML5 form validation.
 
-So, I will look for a good way to do this
+So, I looked for a good way to do this
 [form validation UI](http://www.html5rocks.com/en/tutorials/forms/constraintvalidation/)
-with Angular.  One possibility is
+with Angular.  One possibility was
 [this extension of Angular](https://github.com/nelsonomuto/angular-ui-form-validation).
-Another possibility is
+Another possibility was
 [the form support in Webshim](http://afarkas.github.io/webshim/demos/index.html#Forms),
 which is based on the
 [HTML5 constraint validation API](http://www.whatwg.org/specs/web-apps/current-work/#constraints).
 
 
-### Additional Work
 
-After finishing the form validation UI, the last issue for the Settings page
-is converting all the pages to Angular templates, within a 
-single-page app, using Angular's routing module.  Since the navigation is
-no longer following links and reloading pages, the user can no longer discard
-changes to the Settings form by navigating away from the page, so I think it
-might need a reset or cancel button or link.  Given that, maybe I should
-make it fully modal, with an edit button to start?  I'll consider that along
-with the design for the contact list.
-
-Finally, I need to redo the contact list with expanding details in Angular.
-They are read-only in the prototype, so my March schedule did not include
-editing them.
-
-
-
-Settings Tab
-------------
+Settings Tab - 2014 April
+-------------------------
 
 I finished converting the Settings page to
-[Angular JS](https://angularjs.org/),
-and implementing its UI improvements mentioned in my last status report.
+[Angular](https://angularjs.org/)
+and implementing the following UI improvements.
 
-### Interactive Form Validation
 
-[HTML5 form validation](http://www.html5rocks.com/en/tutorials/forms/constraintvalidation/)
-was insufficient, even with Angular, because:
-* it cannot confirm matching passwords, etc.
-* browsers do not treat an AJAX request the same as a form submit
-* Safari (including iPad/iPhone) provides no UI for this validation
+### Interactive Form Validation ###
 
-So, to render immediate, friendly feedback on user input, I added 
-[the interactive form validation from Webshim](http://afarkas.github.io/webshim/demos/index.html#Forms).
-I think this provides a crucial improvement in usability,
-going beyond Angular.
-It is based on the
+To render immediate, friendly feedback on user input,
+[the interactive form validation from Webshim](http://afarkas.github.io/webshim/demos/index.html#Forms)
+seemed to be the best option with Angular.
+I used it to implement this validation, and believe that it provides
+a crucial improvement in usability, going beyond Angular,
+when compared with the old prototype.  The code is based on the
 [HTML5 constraint validation API](http://www.whatwg.org/specs/web-apps/current-work/#constraints),
 so follows the standards as much as practical.
 
 
-### No Optimistic Locking
+XXX example screenshots here, or at the end of the section?
 
-I eliminated optimistic locking on the user level, allowing the last post to win,
+
+### No Optimistic Locking ###
+
+I eliminated optimistic locking on the user level,
+allowing the last post to win,
 because users will be editing only their own copies of the data.
 This eliminates an error from the server that the users would
 not understand or expect, but was likely to happen if a user is accessing
@@ -810,11 +882,12 @@ the web app from multiple browsers or browser-tabs simultaneously.
 
 [Grails'](https://grails.org/) [Hibernate](http://hibernate.org/orm/)
 still uses optimistic locking within a request to prevent race conditions,
-but it does not extend through the long cycle to the browser.  So, it is unlikely
-to generate an error, only if the user submits multiple simultaneous changes.
+but it does not extend through the long cycle to the browser.
+So, it is unlikely to generate an error,
+unless the same user submits multiple simultaneous changes.
 
 
-### Single-Page App 
+### Single-Page App ###
 
 I converted all the tabbed pages to Angular templates within a
 single-page application, using Angular's basic routing module
@@ -838,7 +911,7 @@ confirmation dialog when navigating away from a tab with changes,
 since I changed the editing to modal.)
 
 
-### Modal Editing
+### Modal Editing ###
 
 I added Edit and Cancel buttons.  They show the user what she can do,
 and make it easier to view her information without accidentally updating it.
@@ -849,19 +922,20 @@ an input field to its original value still undoes the highlight, and disables
 the Save button if no other input fields have changes, but the user
 can accomplish that more easily now by just clicking the Cancel button.
 
-Initially I made the input fields disabled when not in editing mode,
-to show that they could be edited by clicking the Edit button.  However,
-in brief user testing with Professor Robertson in May, this proved confusing.
-Since all input fields start disabled, with no enabled fields for comparison,
-they all looked editable, with the box affordance, and just a darker shade of
-background that does not objectively or independently suggest that they
-are disabled.  The Edit button at the bottom was easily overlooked,
-leading to frustration.  So, at his suggestion, the fields are now displayed
-as plain text, with no editing affordance, while clicking the Edit button
-unambiguously reveals what can be edited.
+Initially I made the input fields disabled when not in editing mode, to
+show that they could be edited by clicking the Edit button.  However, in
+brief user testing with Professor Robertson in May, this proved confusing.
+Since all input fields start disabled, with no enabled fields for
+comparison, they all looked editable, with the input box affordance,
+and just a darker shade of background that does not objectively or
+independently suggest that they are disabled.  The Edit button at
+the bottom was easily overlooked, leading to frustration.  So, at his
+suggestion, the fields are now displayed as plain text, with no editing
+affordance, while clicking the Edit button unambiguously reveals what
+can be edited.
 
 
-### Independent Password Editing
+### Independent Password Editing ###
 
 In my original prototype, the Settings page used modal JavaScript
 to expand password update fields that were submitted with the rest
@@ -883,36 +957,53 @@ The Change Password button still toggles to
 Cancel Password Change, instead of adding a typical Cancel button.
 
 
-Hosting
--------
+XXX add example and comparison screenshots here
 
-These UI improvements were taking a long time, and I was falling behind schedule,
+
+Hosting - 2014 May & June
+-------------------------
+
+These UI improvements were taking a long time,
+and I was falling behind schedule,
 but I felt that they were crucial to the project.
 To illustrate their significance, I tried to host my original prototype
 and current project in the cloud, for comparison and constant availability.
 
 
-### Original Prototype
+### Original Prototype ###
 
 I got [my original prototype running on Heroku](http://rocky-meadow-9347.herokuapp.com/).
-Although I updated some of the software, the UI is as it originally was.
-You can try it whenever you like.
-It is on a free instance, so it will be available as long as Heroku allows it.
-The first time you access it, it will probably show an error
-as it times out waiting for a server instance to be spun up.
-If you get that error, just reloading the page should work around it.
+Although I updated some of the software, the UI is as it originally was,
+for user testing.  It is on a free instance, and accessible by anyone,
+at any time, as long as Heroku allows it.
+On first access, a user will probably get an Application Error,
+as it times out waiting for Heroku to spin up a server instance.
+Just reloading the page should work around that error,
+and a user can normally log in to the app with the following:
 
 * login: joe.cool@example.com
 * password: password
 
+If that password does not work, someone may have changed it
+since the last time that the app was restarted.
+In that case, or in any case, a user can click the
+"Sign up for new account" link.  This is an easy way to review the old UI.
 
-### Current Project
 
-I also got my current project running on Heroku.
-Unfortunately, as I added new features, it kept breaking on Heroku
-in a way that was difficult to reproduce or troubleshoot on my development machine.
-Besides Heroku's incompatibility, I think that I had also reached the
-limits of what I could do in the amount of memory that Heroku provides for free.
+### Current Project ###
+
+I also got my main app running on Heroku.  Unfortunately, as I
+added new features, it kept breaking on Heroku in a way that was difficult
+to reproduce on my development machine, and I could find no effective way
+to troubleshoot the problems on Heroku.  Besides its
+incompatibility and limited support for the Java ecosystem,
+I think that I had also reached the limits of what I
+could do in the amount of memory that Heroku provides for free.
+
+I spent some time searching for better, free hosting alternatives.
+I looked at various providers, of various types,
+but I could not find any free ones that would provide enough
+resources to run an app as large as my main one had become.
 
 Next, I tried Jelastic, which was not free, but promised to not
 charge for resources for the time when the app was not being used.
@@ -922,114 +1013,21 @@ discovered that all the Jelastic providers actually charge for a
 minimum set of resources constantly, despite the app not being used.
 Jelastic has the capability of automatically hibernating an environment
 that has not been used for some period of time, but the providers
-have a policy of only allowing that for free trial accounts.
+have a policy of only allowing that for free trial accounts,
+which are available for too limited a time.
 
 Finally, I gave up on hosting the current version during development.
 These attempts and searching for a suitable host had taken a lot of time.
 I decided that constant availability was not worth the cost or time to
 continue searching for a cost-effective cloud host.
-I will just run my project on my development machine for user testing and demos,
-and look into hosting again when it is feature complete.
+I would just run my project on my development machine for user testing
+and demos, and look into hosting again later, when it is feature complete.
 
 
-Contacts Tab
-------------
+Search - 2014 July & August
+---------------------------
 
-I started converting the app's main tab, Contacts, to Angular and AJAX,
-from the Prototype JavaScript library.
-I also added new features, such as editing, sorting, and paging,
-because they had a large impact on the implementation in Angular.
-However, I have not finished the conversion of this tab.
-
-### Sorting and Paging
-
-The preferred email, phone, and address that are displayed on the
-top-level list were virtual properties on a Person, to be elected
-from a Person's available properties or sub-properties, according to the user's
-preferences.  But, to implement sorting and paging on those properties
-via the database (i.e.,
-[GORM criteria](http://grails.org/doc/latest/guide/GORM.html#criteria)),
-I need a copy of the preferred property
-on the top-level Person, de-normalizing the database.  I was able to
-implement that now, since I had changed the app design to make each user
-have their own copy of a shared Person.
-
-I added explicit buttons for sorting, showing the selected column
-and direction of the sort, instead of using the column headers as
-implicit buttons.
-
-For paging, the prototype's default Grails buttons provided a navigation link
-to a nearby page of the sorted search results.  With Angular and AJAX, 
-however, there is no need for the browser to throw out the contents of the current page.
-The initial, limited page size (10 entries) allows the browser to display the results faster,
-and hopefully it contains what the user is looking for.  She can add a search term
-to quickly narrow down the results.  If there are more matching contacts,
-their count is displayed at the bottom of the page, along with a button to Load
-or Load More.  If 150 or fewer entries remain, the Load button gets them all,
-but over that amount, the Load More button will get the next 100.
-
-When I implemented search, I had to redo the sorting and paging.
-
-
-### Drilling Down And Editing
-
-Clicking anywhere on the row of a contact expands it to display its details.
-Several users tried to do that on the prototype, overlooking the row's expand/collapse button.
-Any number of contacts can be expanded at the same time.  Each has name details
-that can be further expanded.  Each expanded part can be edited and saved independently.
-The new design does not need to indicate which contacts can be edited,
-because all the contacts that the user can see will be her own personal copies of them.
-
-Before finishing the conversion of my original prototype,
-I started adding the editing of contacts, because it had such
-a large impact on the Angular implementation.
-The original had editing of the user's profile and registration,
-which is like a single contact, but flat and static.
-
-User testing revealed problems in the original with uploading a
-photo via a traditional form submit.  When any fields had an error
-requiring correction, the photo file also needed to be browsed and selected
-again.  That was inconsistent with other fields, which maintained
-their changed but un-posted values, and it surprised and confused
-users, leading to more errors.  Compounding the problem was that
-the photo was required, because the prototype's data-centric design
-needed it to let users identify and request access to the single instance
-of that Person in the app.  To avoid these issues now, an optional
-Upload Photo or Upload New Photo button sends the file independently,
-immediately, via AJAX.
-
-For birth date, the original prototype used the Grails default
-of three select controls: month, day, and year.
-I changed that to a single control, the Angular-UI-Bootstrap date-picker,
-a text input field with a button to pop-up a calendar.
-
-
-### To Do
-
-I have not yet finished the conversion or new features of the Contacts tab.
-Here are some of the remaining issues on that tab, 
-which I may not have time to resolve in this project.
-
-* listing a contact's connections, and drilling down into them
-* bug: when modifications are undone manually, undo the highlighted fields and disable the Save button
-* Birth Date
-  * display in preferred format
-  * separate date from time preference settings
-  * bug: after first use, calendar fails to reappear
-  * bug: after saving or canceling change, field and Save button remain highlighted on next edit
-* photo upload
-  * progress bar and Cancel Upload button are not displayed
-  * drag-and-drop border does not hug the image or animate to suggest drop-ability
-  * making the Edit/Cancel button revert to original photo after uploading a new one
-* adding new fields
-* displaying more properties
-* highlighting and automatically expanding matching search results
-
-
-Search
-------
-
-Search is another new feature that I added to the Contacts tab,
+Search is a new feature that I implemented on the Contacts tab,
 beyond just converting the original prototype to Angular.
 I did so because it impacted the Angular implementation,
 particularly paging and sorting,
@@ -1043,7 +1041,7 @@ That turned out to be fundamentally different from a relational database,
 and I discovered that I needed to learn a lot about it.
 
 
-### Searchable Plug-in
+### Searchable Plug-in ###
 
 Originally I used Grails' ["searchable"
 plug-in](http://grails.org/plugin/searchable), based on
@@ -1070,14 +1068,15 @@ Compass and Elasticsearch are key, because they map the Hibernate/GORM
 entities to Lucene documents.
 
 
-### Elasticsearch
+### Elasticsearch ###
 
 So, I went with [an Elasticsearch
 plug-in](http://grails.org/plugin/elasticsearch) instead.  It provides
 a nice facade on Lucene, including an API with a REST interface for
-browsing and querying the index in JSON.  It has better
+browsing and querying the index in JSON.  Elasticsearch has better
 [documentation](http://www.elasticsearch.org/guide/) and tools than
-Compass and the Searchable plug-in.  I read [Elasticsearch: The
+Compass and the Searchable plug-in (although the documentation for
+the Elasticsearch plug-in is not as good).  I read [Elasticsearch: The
 Definitive
 Guide](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/index.html)
 and
@@ -1089,7 +1088,7 @@ a developer console web app that provides good support for that API.
 With this new understanding, I finally resolved the issue with
 the related objects missing from the search index.
 The problem involved the Hibernate session and transaction
-in the bootstrap initialization of the test fixture data;
+in the bootstrap initialization of my test fixture data;
 I just needed to flush the session before indexing the data in Elasticsearch,
 which was using a separate session, so it saw the object relations
 in the database and included them in the Lucene documents that it built.
@@ -1097,8 +1096,8 @@ This was difficult to debug, because Elasticsearch saw the entities
 in the database, but just didn't see their relations, and the relations
 were flushed to the database after the bootstrap method finished running,
 so the problem was not visible afterwards.
-This resolution might solve the same issue on Compass and the searchable plug-in,
-but I will just stay on Elasticsearch.
+This resolution might solve the same issue on Compass and the
+searchable plug-in, but I just stayed on Elasticsearch.
 
 I also configured Elasticsearch to not analyze any of the searchable fields,
 so it would provide only exact matches.  It can use various analyzers,
@@ -1106,43 +1105,373 @@ based on natural language, to find similar or root words in English text.
 Contact information is not like English text, but I may try to use
 an analyzer in the future to allow matches on typos in names and numbers.
 
-Elasticsearch should be able to highlight the matches within search results,
-but I have not gotten that working yet.  I would like to automatically expand
-the matches and highlight them in the browser.  Since the app will be searching
-only the user's own copies of contacts, there will probably be a limited amount,
-which raises the possibility of doing the search entirely within the browser.
-All of the user's contacts would need to be sent to the browser for any search,
-and the implementation would be different from the current one using
-Elasticsearch on the server.  However, initially I would probably try to expand
-matches in the browser while continuing to do the search on the server.
+Elasticsearch should be able to highlight the matches within search
+results, but I have not gotten that working yet.  I would like to
+automatically expand the matches and highlight them in the browser.
+Since the app will be searching only the user's own copies of contacts,
+there will probably be a limited amount, which raises the possibility
+of doing the search entirely within the browser.  All of the user's
+contacts would need to be sent to the browser for any search, and the
+implementation would be different from the current one using Elasticsearch
+on the server.  However, initially I would probably try to expand matches
+in the browser while continuing to do the search on the server.
 
 Although I had experience with database searches, this search
 was more like what I did in an artificial intelligence course.
-These frameworks were new for me, and took up a lot of the summer.
+These search frameworks were new for me, and took up a lot of time.
 
 
-Schedule
---------
+Contacts Tab - 2014 May..October
+--------------------------------
 
-Unfortunately, I have run out of time on this project,
-and could not complete all the features that I had hoped to do
-within 6 credit hours.  So, I need to limit the project scope
-to just the UI improvements that I could do.
+I converted the app's main tab, Contacts, to Angular and AJAX.  At the
+same time, I also added new features, including editing, sorting, and
+paging, in addition to searching, because they had a large impact on
+the implementation in Angular.  I worked on this tab across six months,
+but during this period I was also working on hosting for two months
+and search for two months.
 
-* 2013 Oct - research publications and apps since 2009
-* 2013 Nov - redesign
-* 2013 Dec - user testing on old prototype
-* 2014 Jan - update prototype to current Grails
-* 2014 Feb - authentication via Facebook & Google
-* 2014 Mar & Apr - redo Settings UI with Angular
-* 2014 May & Jun - cloud hosting (Heroku & Jelastic)
-* 2014 Jul & Aug - search Contacts
-* 2014 May..Sep - redo and edit Contacts UI with Angular
-* 2014 Sep - update login page style
-* 2014 Oct 2 - limited user testing
-* 2014 Oct - write report (due Nov 7)
-* 2014 Nov - prepare presentation
-* 2014 Dec 4 - present to ICS 690
+
+### Sorting and Paging ###
+
+The preferred email, phone, and address that are displayed on the
+top-level contacts list were virtual properties on a Person, to be elected
+from a Person's available properties or sub-properties, according to the
+user's preferences.  But, to implement sorting and paging on those
+properties via the database (i.e.,
+[GORM criteria](http://grails.org/doc/latest/guide/GORM.html#criteria)),
+I needed a copy of the preferred property
+on the top-level Person, de-normalizing the database.
+This implementation was enabled by the new design of the app,
+because each user will have their own copy of a shared Person.
+
+I added explicit buttons for sorting, showing the selected column
+and direction of the sort, instead of using the column headers as
+implicit buttons.
+
+For paging, the prototype's default Grails buttons provided a navigation
+link to a nearby page of the sorted search results.  With Angular and
+AJAX, however, there is no need for the browser to throw out the contents
+of the current page.  The initial, limited page size (10 entries) allows
+the browser to display the results faster, and hopefully it contains what
+the user is looking for.  She can add a search term to quickly narrow
+down the results.  If there are more matching contacts, their count
+is displayed at the bottom of the page, along with a button to Load or
+Load More.  If 150 or fewer entries remain, the Load button gets them all,
+but over that amount, the Load More button will get the next 100.
+
+Initially, I implemented all the sorting and paging relatively quickly,
+with GORM, because I already had experience with it.
+However, when I implemented search, I had to redo the sorting and paging
+using the Elasticsearch API, to make them work within the search parameters.
+This took more time.
+
+
+### Drilling Down And Editing ###
+
+Clicking anywhere on the row of a contact expands it to display its
+details.  Several users tried to do that on the prototype, overlooking
+the row's expand/collapse button.  Multiple contacts can be open
+at the same time.  Each has name details that can be further expanded.
+Each may have zero or more connections to work or home contact
+information, such as phone or address.  These display their own
+preferred properties on a collapsed line, which can be expanded too.
+Each expanded part can be edited and saved independently.  The new design
+does not need to indicate which data can be edited, because it all can,
+since everything that the user can see will be her own personal copy.
+
+Before finishing the conversion of my original prototype to Angular,
+I started adding the editing of contacts, because it had such
+a large impact on the Angular implementation.
+The original had editing of the user's profile and registration,
+which is like a single contact, but flat and static.
+It had not implemented editing at any depth, nor in parallel,
+but in this project I implemented both, with Angular/AJAX/REST.
+
+User testing revealed problems in the original with uploading a
+photo via a traditional form submit.  When any fields had an error
+requiring correction, the photo file also needed to be browsed and selected
+again.  That was inconsistent with other fields, which maintained
+their changed but un-posted values, and it surprised and confused
+users, leading to more errors.  Compounding the problem was that
+the photo was required, because the prototype's data-centric design
+needed it to let users identify and request access to the single instance
+of that Person in the app.  To avoid these issues in my new app,
+an optional Upload Photo or Upload New Photo button sends the file
+independently, immediately, via AJAX.
+
+For birth date, the original prototype used the Grails default
+of three select controls: month, day, and year.
+I changed that to a single control, the Angular-UI-Bootstrap date-picker,
+a text input field with a button to pop-up a calendar.
+
+The nested editing levels had a bug involving my custom Angular
+directive to highlight modified fields, despite working properly
+on the Settings tab.  When modifications were undone manually
+in the contacts, it failed to undo the highlight and disable the
+Save button.  Eventually I fixed the bug.  For that matter, there
+were many bugs, but I tried to hold off committing until I could fix them,
+when I found the bugs in time.
+
+
+
+### Adding or Deleting Fields ###
+
+When a contact is in editing mode, an Add drop-down button appears,
+with which the user can select a new field to add.
+That button is right above the Save button, but the fields above it
+are displayed in a predetermined order, by type of field,
+so the new, empty field can appear several fields above the
+Add button.
+
+To delete a field, in editing mode, the user can press the backspace
+or delete key to erase the contents of the field.  Of course, besides
+deleting character by character, browsers have shortcuts to quickly
+select all the text in the input control, such as double-clicking with the
+mouse, or using the tab key, or Ctrl/Cmd-A, and then the backspace key.
+Then, clicking the Save button will remove the empty field from the
+server's database, and stop displaying it when that part of the contact
+is refreshed from the AJAX response.
+
+However, I did not have time to implement a UI for deleting
+entities such as connections, addresses, or contacts.
+Deleting all their fields individually seems unwieldy,
+so I think it will require a button on each one to delete.
+Given delete buttons on some of the UI, it may be better
+to have consistent delete buttons on all of the fields, too.
+
+
+### Adding a Contact ###
+
+Since I had run out of time on this project,
+the only Add Contact button that I could implement was minimal.
+Clicking it adds a blank contact row at the
+top of the list.  Then, the user needs to expand it and its
+name details (which is ambiguous, because it is empty),
+click Edit on the name details, input a first and last name,
+and click Save on the name details, before trying to save fields
+outside of the name.  This minimal implementation was easy to
+do with Angular, but the second round of user testing confirmed
+problems with this UI and suggested improvements.
+
+
+Registration and Profile - 2014 October
+---------------------------------------
+
+To prepare for the second round of user testing,
+and provide more consistency with the first round,
+I added the following, relatively easy parts of the UI.
+
+Having run out of time to integrate the Spring Security 2 sandbox app
+with Google and Facebook authentication, I proceeded with implementing
+these on the old authentication plug-in.
+
+
+### My Profile ###
+
+The My Profile tab contains just the user's Person.  Each user has one
+Person that the user represents.  The UI is just one permanently expanded
+contact from the Contacts tab, without the list of other contacts.
+This was easy because I had already implemented it for the Contacts tab.
+The user can view and edit her Person in her My Profile tab the same
+as in her Contacts tab.  That Person gets her own tab because she is
+important to the user, but also appears on the Contacts tab to allow
+for reference and comparison with other contacts.
+
+
+### Invitation ###
+
+I added an Invitation domain object to link a Person
+to a new user's email address.  I didn't implement any UI for
+this yet, but the scenario for the second user tests is:
+* a current user inputs a person's contact info (at least name and email);
+* the current user asks the app to send an invitation to that person;
+* the app generates an email with the invitation and sends it to that
+person's address;
+* that person receives the email and clicks on the link in it
+to start to register and proceed with user testing.
+
+The app does not actually do the above yet,
+but I added invitations to the test fixtures
+for the participants in the user tests.
+The real invitations will select random numbers to use as IDs,
+to provide some security.  For the user testing, I wrote the
+invitation emails by hand, with a link to the invitation in
+the test fixture.  I showed the test subject the email on my
+own laptop, in my own email client, and explained that they
+should imagine that my email had arrived in their own in-box,
+and then click the link in it.
+
+
+### Registration ###
+
+The link in the invitation email goes straight to the registration
+page, which I updated to require only that the user choose a
+password.  After the user provides and confirms her new
+password, the page redirects to her My Profile tab, where
+she can optionally fill in the rest of her details.
+
+I intended this UI enhancement to avoid several problems
+found in the first round of user testing:
+* trying to login without registering first (impossible now that the link goes straight to the registration page),
+* needing to upload a profile image (optional now, and possible only after registration is completed),
+* confirming the chosen password (easier with the passwords displayed, the interactive validation, and nothing but the passwords on the form).
+
+The invitation effectively verifies that the new user has access to
+the email to which it was sent.  Different users are not allowed to
+have the same email address, so if an address has already accepted
+an invitation, then the user must login with the already-registered
+password instead.
+
+
+### Sign In/Out ###
+
+I restyled the Sign In and Sign Out pages in Bootstrap,
+with the interactive validation requiring an email address
+and password.
+
+
+Second User Testing - 2014 October
+----------------------------------
+
+I did some limited user testing to confirm or evaluate the improvements
+in the new app over the old prototype, and to find or confirm further
+need for improvement.  The format was the same as in the first user
+testing, starting with the scenario specified in the Invitation
+section above, and then several tasks I suggested, such as,
+"Please try adding your phone number," or, "Please change Alex's
+work address."
+
+I tested four users, all middle-aged:
+* One, my wife, was the only one also in the first round of user testing.
+* Her friend is also female with an A.S. degree in interface design.
+* My co-worker is male, with an M.S. degree in computer science.
+* My project advisor is an expert in user interfaces.
+
+
+### Improvements ###
+
+The improvements that I made to mitigate the issues that were found
+in the first round of user testing seemed to be generally successful.
+Nobody had any significant difficulty with the registration step.
+
+* Nobody tried to login before registering.  Only one user said,
+"What's the password?" but quickly noticed that it was a request
+to choose one.
+* One user tried to choose a 4-character password, but was
+quickly corrected by the interactive validation.
+She expressed some annoyance that the 6-character requirement was
+not displayed in the first place, but quickly got past it.
+Beforehand, she commented that choosing a password is a pain.
+* One user was nervous that while choosing and confirming
+the password, its characters were not hidden.  It made him question
+how secure the app was.  He suggested defaulting those inputs to
+hidden, with an un-hide check-box.
+* Everyone quickly learned the basic modal editing,
+and were able to change or add fields to their profile.
+
+
+### Observations ###
+
+* Two users selected a month and day with the mouse on the date-picker
+calendar, and then changed the year via the input text field and keyboard,
+in a fast and fluent manner.
+* Users were able to quickly search, and learned to edit without
+too much difficulty.
+* "It takes a while to learn where to go, but once I do it a few
+times, I can see where to go."
+
+
+### Issues ###
+
+* All users had major problems identifying which Edit or Add button
+to use for certain fields.  It was not always the closest button,
+and not always visible.  "I thought Add was for another contact."
+"Why is name and the rest separate?"  "I don't know how to add my
+phone number."
+* Users had problems adding a contact, editing and saving the
+name first.  Some suggested that a newly added, blank contact
+start out expanded with the name in editing mode.
+* Some users saw the connection rows as starting a new contact,
+because they look too similar, and are not indented enough.
+* Some users wondered what information would be visible to other users.
+* One user wondered, "If I add a contact, do I invite that person?"
+* One overlooked the success message from a password change,
+because it was displayed at the top of the page, but the password
+change section was at the bottom.
+* Everyone was confused by the name, "Bendy".  "Is that the name?"
+"I don't know what that is."
+* Users felt that the email was "sketchy".  One commented that it
+looks like phishing spam, and she would never click the link,
+because it is dangerous.  Several suggested that the email needed
+more details and explanation.
+* After registering, while looking at the My Profile tab, 
+one user commented, "I don't know what site this is."
+She didn't really read the email.
+* One user clicked the browser's back button, and one considered doing so.  The app does not support this, and when to the registration page, with an exception.
+* One user wanted a way to clear all fields in an address somehow.
+
+
+Future Work
+-----------
+
+I would like to do a lot more work on this app,
+beyond the end of this project.
+
+First, I would look for solutions to the issues found in
+the second round of user testing.  It will require
+more changes to the design of the UI.  Here are some changes
+that I am considering:
+
+* Have one Edit button for the whole contact, including every level.
+* Put an Add button in each property type section, instead of a drop-down button above Edit.  This will take more vertical space, especially for empty property types, but only while editing (now that we have editing mode), and this way will have a better chance of remaining within the locus of attention.  (Perhaps adjacent empty sections could be coalesced?)
+* Put a delete button by every field and entity in the contacts.
+* Indent the connections more, and emphasize the nesting style.
+* Add a hover highlight to improve the delineation and gestalt of the contact
+(like in the old prototype).
+* Start a newly added, blank contact in editing mode
+with the name expanded.
+* Compose an informative email template for invitations.
+
+I would also like to integrate the profile with authentication.
+Currently the user
+can freely change her login email address in the Settings tab,
+with no verification.  That address can be duplicated on the
+My Profile and Contacts tabs.  I would like to display it
+on only those tabs, but read-only, if registered for login.
+An already-registered user could receive another invitation at
+a second email address.  She should be able to add that
+address as another verified way to login to her existing account,
+using her existing password, instead of adding a secondary user.
+If she wants to login with another email address, she should
+be able to send herself an invitation to verify that address.
+Likewise, after I integrate the Spring Security sandbox with
+Google and Facebook logins, the user should be able to add
+those authentication methods to her account, or use them instead
+of configuring a password.
+
+Finally, there are small parts of the current UI that are
+missing or not working properly, and large areas of functionality
+that have not been implemented yet.  For example:
+
+* Birth Date
+  * display in preferred format
+  * separate date from time preference settings
+  * bug: after first use, calendar fails to reappear
+  * bug: after reverting change in text input, field and Save button remain highlighted
+* photo upload
+  * progress bar and Cancel Upload button are not displayed
+  * drag-and-drop border does not hug the image or animate to suggest drop-ability
+  * making the Edit/Cancel button revert to original photo after uploading a new one
+* displaying more types of properties
+* deleting addresses, connections, or contacts
+* highlighting and automatically expanding matching search results
+* email/notifications
+* history
+* permissions/privacy
+* duplicates/unify/link
+* import/export/sync
+
 
 
 References
