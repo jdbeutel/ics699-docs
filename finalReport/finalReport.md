@@ -879,7 +879,11 @@ when compared with the old prototype.  The code is based on the
 so follows the standards as much as practical.
 
 
-XXX example screenshots here, or at the end of the section?
+![interactive validation example for bad current password](Bendy - Settings - bad current passwd.png)
+
+![interactive validation example for too short new password](Bendy - Settings - short new passwd.png)
+
+![interactive validation example for mismatched confirmation password](Bendy - Settings - mismatch confirm passwd.png)
 
 
 ### No Optimistic Locking ###
@@ -1340,6 +1344,14 @@ password instead.
 I restyled the Sign In and Sign Out pages in Bootstrap,
 with the interactive validation requiring an email address
 and password.
+
+![sign in example with placeholders](Bendy - sign in placeholder.png)
+
+![sign in example with bad email](Bendy - sign in non-email.png)
+
+![sign in example with two bad fields](Bendy - sign in two bad.png)
+
+![signed out example](Bendy - signed out.png)
 
 
 Second User Testing - 2014 October
