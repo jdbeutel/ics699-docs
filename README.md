@@ -4,7 +4,12 @@ ICS MS project documentation
 J. David Beutel  
 Fall 2013 and Spring 2014  
 
-## current
+## final report
+
+[(draft) final report](finalReport/finalReport.md)
+
+
+## past
 
 * [proposal](proposal/proposal.md)
 * [research notes](newResearch/notes.md)
