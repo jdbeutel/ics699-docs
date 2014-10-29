@@ -786,6 +786,18 @@ for the simultaneous viewing and comparing of contacts,
 but I think that Bootstrap's support of responsive design
 improves the app's usability on mobile devices too.
 
+Below is an example of the grid layout design responding
+to the width of the browser, changing the navigation bar
+into a menu button, and the way that navigation menu looks when
+dropped down.
+
+![wide grid layout example](Bendy - Settings - wide layout.png)
+
+![narrow grid layout example](Bendy - Settings - narrow layout.png)
+
+![narrow navigation menu dropdown example](Bendy - Settings - narrow nav dropdown.png)
+
+
 
 ### Replacing Prototype ###
 
