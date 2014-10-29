@@ -1242,6 +1242,11 @@ Save button.  Eventually I fixed the bug.  For that matter, there
 were many bugs, but I tried to hold off committing until I could fix them,
 when I found the bugs in time.
 
+Below is an example of drilling down into a contact,
+but not editing.
+
+![example of contact view](Bendy - Contacts - view.png)
+
 
 
 ### Adding or Deleting Fields ###
@@ -1268,6 +1273,15 @@ Deleting all their fields individually seems unwieldy,
 so I think it will require a button on each one to delete.
 Given delete buttons on some of the UI, it may be better
 to have consistent delete buttons on all of the fields, too.
+
+Below is an example of using the Add drop-down to add
+a phone field, and another example of having added a
+phone field to a work connection on a different contact,
+but not having saved it yet.
+
+![example of contact add drop down](Bendy - Contacts - add dropdown.png)
+
+![example of contact adding work fax](Bendy - Contacts - adding work fax.png)
 
 
 ### Adding a Contact ###
