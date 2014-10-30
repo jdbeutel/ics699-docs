@@ -6,8 +6,8 @@ Fall 2013 and Spring 2014
 
 ## (draft) final report
 
-[MarkDown](finalReport/finalReport.md)
-[PDF](finalReport/finalReport.pdf)
+* [MarkDown](finalReport/finalReport.md)
+* [PDF](finalReport/finalReport.pdf)
 
 
 ## past
