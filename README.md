@@ -4,10 +4,10 @@ ICS MS project documentation
 J. David Beutel  
 Fall 2013 and Spring 2014  
 
-## (draft) final report
+## final report
 
 * [MarkDown](finalReport/finalReport.md)
-* [PDF](finalReport/finalReport.pdf)
+* [PDF](finalReport/finalReport-revised.pdf)
 
 
 ## past
