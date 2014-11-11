@@ -31,7 +31,7 @@ for transitive sharing on a social networking site; and,
 of the above design.
 
 
-## Agile Usage-Centered Design ##
+### Agile Usage-Centered Design ###
 
 The author evaluated the utility of the (Constantine & Lockwood, 2002)
 streamlined and simplified variant of the Usage-Centered Design method,
@@ -70,7 +70,7 @@ that cannot be undone, such as sending a notification email.
 ![interaction schemes](Agile Interaction Scheme.png)
 
 
-## Literature Review ##
+### Literature Review ###
 
 Conceived initially with a centralized data model,
 like Wikipedia or Facebook, the literature was reviewed
@@ -95,6 +95,7 @@ and
 broadcast your personal details that you shared with her in confidence).
 
 The paper claims that Nissenbaum emphasizes two main points:
+
 1. "information is always tagged, as it were, with the context in which it is
 revealed: there is no such thing as context-free information."
 2. The scope of privacy norms depends on the context. "There is no such
@@ -122,7 +123,7 @@ of all of their information."
 modify their behavior before changes that could result in privacy problems.
 
 
-## User Interface Prototype ##
+### User Interface Prototype ###
 
 The third previous project was the beginning of the implementation
 of the above design, as part of a group project.
@@ -158,7 +159,7 @@ Issues
 The design and prototyping of the previous projects revealed
 the following issues and potential approaches to mitigate them.
 
-## privacy & trust ##
+### privacy & trust ###
 
 This kind of sharing raises privacy concerns.  A phone number or home
 address connects to the physical world, so most people don't want
@@ -190,7 +191,7 @@ that information?  What cognitive model and UI would support this?
 Would enough contextual integrity (Nissenbaum, 2004) be provided by
 showing from whom the information or update came?
 
-## unification ##
+### unification ###
 
 Different users will have different relations to the same contact.
 If the app lacks good support for that, then it will not sustain the
@@ -238,17 +239,17 @@ wiki model, but the above issue lead to a preference for this distributed
 model (even in a centralized web app).
 
 
-## identity ##
+### identity ###
 
 The app will need to identify contacts and users.
 
-### contacts ###
+#### contacts ####
 
 Contact identity, for unification, will be based on name 
 and location.  Matches can be approximate or historical.
 The user can confirm via linking.
 
-### users ###
+#### users ####
 
 The basis of a user's identity is their email address:
 a ticket mailed in an invitation to that address links the new user
@@ -274,13 +275,13 @@ are well-implemented, and well-integrated.
 Here is an overview of them, as of mid-2013.
 
 
-## Google ##
+### Google ###
 
 Various Google apps are well integrated,
 and support some aspects of this project.
 
 
-### Google+ ###
+#### Google+ ####
 
 A user's Profile in Google+ allows sharing of the user's own home and
 work contact information, with a nice UI, especially for privacy settings.
@@ -294,7 +295,7 @@ accept third-party contact information.
 ![Google+ profile example](Google+ - Profile - Contact Info - David Beutel.png)
 
 
-### Gmail Contacts ###
+#### Gmail Contacts ####
 
 The Contact Manager in Gmail, on the other hand, does allow third-party
 contacts, in "My Contacts".  The user can input anyone.  However, it
@@ -316,7 +317,7 @@ the assumption is that those are not for some other user.
 ![Gmail contact example](Gmail - Contact Manager - Luke Daley.png)
 
 
-### Android HTC ###
+#### Android HTC ####
 
 The "People" (aka Phone-book) on a smart-phone running Android 4.0
 (HTC Sense 3.6) can be integrated with Contacts on Google and other
@@ -334,7 +335,7 @@ Google Contacts, e.g.,
     <HTCData><Facebook>id:575439899/friendof:1664495322</Facebook></HTCData>
 
 
-### Google Drive ###
+#### Google Drive ####
 
 Google Drive (nee Docs) supports sharing of third-party data,
 or any data that can be put into a spreadsheet or other document.
@@ -357,7 +358,7 @@ So, it does not support the fine-grained sharing required by this project.
 ![Google Drive owner sharing example](Google Drive - My Drive - Sharing settings.png)
 
 
-## Facebook ##
+### Facebook ###
 
 As with Google+, a Facebook user can add contact information to his profile
 to share with second-parties, other Facebook users, or the public.
@@ -381,7 +382,7 @@ the poster.  Of course, over time, Facebook adjusts its privacy settings,
 UI, and functionality, so this is just a snap-shot.
 
 
-## Plaxo ##
+### Plaxo ###
 
 Plaxo supports contact information similar to Google, but with
 fewer privacy settings.  It encouraging users to share their own work
@@ -427,7 +428,7 @@ but the repository was not public, because their redistribution
 is not authorized.
 
 
-## Safebook ##
+### Safebook ###
 
 (Cutillo et al., 2009) described Safebook, a decentralized, pseudonymous
 social network that works like an onion router (i.e., TOR).  Ironically,
@@ -445,7 +446,7 @@ that issue reinforced the new design of the current project, with its
 decentralized (GitHub) data model, despite its centralized architecture.
 
 
-## Vis-a-Vis ##
+### Vis-a-Vis ###
 
 (Shakimov et al., 2011) described Vis-a-Vis, another decentralized social
 networking system, where each user has his own individual virtual server.
@@ -461,7 +462,7 @@ networks, such as Facebook, on the fly, which would be untenable
 to maintain.
 
 
-## Personal Data Vault ##
+### Personal Data Vault ###
 
 (Mun et al., 2010) described the Personal Data Vault (PDV),
 a third decentralized architecture.
@@ -513,7 +514,7 @@ and its UI focuses on maps.  The paper did not include user studies
 on whether its UI had succeeded in meeting its design principles.
 
 
-## A Critical Look at Decentralized Personal Data Architectures ##
+### A Critical Look at Decentralized Personal Data Architectures ###
 
 (Narayanan et al., 2012) reviewed attempts to create decentralized
 systems.  The position paper described social values (privacy, utility,
