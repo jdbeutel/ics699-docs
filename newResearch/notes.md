@@ -22,7 +22,7 @@ app.  I don't see any privacy setting or choice of which lists to
 provide to an app, so it looks like all or nothing.
 
 
-## 2013-10-17 [Narayanan, Barocas, Toubiana, Nissenbaum, & Boneh (2012).  A Critical Look at Decentralized Personal Data Architectures](1202.4503v1.pdf)
+## 2013-10-17 Narayanan, Barocas, Toubiana, Nissenbaum, & Boneh (2012).  A Critical Look at Decentralized Personal Data Architectures
 
 This position paper reviews attempts to create decentralized social
 networks, infomediaries, Vendor Relationship Management systems,
@@ -86,7 +86,7 @@ Nevertheless, to avoid several of the drawbacks outline by
 this paper, I will use a centralized architecture.
 
 
-## 2013-10-24 [Cutillo, Molva, & Strufe (2009).  Safebook: A Privacy-Preserving Online social Network Leveraging on Real-Life Trust](safebook.pdf)
+## 2013-10-24 Cutillo, Molva, & Strufe (2009).  Safebook: A Privacy-Preserving Online social Network Leveraging on Real-Life Trust
 
 This article describes a distributed social network system.
 It suggests that "a realistic compromise between privacy
@@ -138,7 +138,7 @@ might look like this article, describing a recently built prototype.
 Hopefully its specification will be more realistic.
 
 
-## 2013-10-29 [Shakimov, Lim, Caceres, Cox, Li, Liu, & Varshavsky (2011).  Vis-a-Vis: Privacy-Preserving Online Social Networking via Virtual Individual Servers](comsnets11.pdf)
+## 2013-10-29 Shakimov, Lim, Caceres, Cox, Li, Liu, & Varshavsky (2011).  Vis-a-Vis: Privacy-Preserving Online Social Networking via Virtual Individual Servers
 
 This article describes another distributed social networking system.
 Its authors implemented a prototype of a location-based online
@@ -203,7 +203,7 @@ It does not include an experiment, but it will have an
 architecture, implementation, and evaluation.
 
 
-## 2013-11-04 [Mun, Hao, Mishra, Shilton, Burke, Estrin, Hansen, & Govindan (2010).  Personal Data Vaults: A Locus of Control for Personal Data Streams](mun2010.pdf)
+## 2013-11-04 Mun, Hao, Mishra, Shilton, Burke, Estrin, Hansen, & Govindan (2010).  Personal Data Vaults: A Locus of Control for Personal Data Streams
 
 This paper describes a third decentralized personal data architecture.
 A PDV allows the user to maintain ownership of his data,
@@ -268,7 +268,7 @@ and whether they are willing to spend that much time protecting
 their private data, no matter how good the UI is.
 
 
-## 2013-11-11 [Waters, Brent (2011).  Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization](WatersCP08.pdf)
+## 2013-11-11 Waters, Brent (2011).  Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization
 
 This paper goes into detail about an improved implementation of a certain
 kind of attribute-based encryption (ABE), including proofs and several
